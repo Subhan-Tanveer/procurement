@@ -1,0 +1,18 @@
+/* ----------------------------------------------------------------------------------------
+ * GoodProcure — Motion Layer (CSS safety net)
+ * .wow elements are hidden immediately at first paint so there's no flash of unanimated
+ * content before gps-motion.js takes over (WOW.js itself is disabled in function.js).
+ * -------------------------------------------------------------------------------------- */
+.wow {
+	opacity: 0;
+}
+
+.btn-default {
+	will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wow {
+		opacity: 1 !important;
+	}
+}

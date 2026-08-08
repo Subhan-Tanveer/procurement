@@ -1,0 +1,914 @@
+/* ----------------------------------------------------------------------------------------
+ * GoodProcure — Products Listing + Product Detail Rebuild
+ * Editorial, asymmetric, near-black canvas. Huge Bebas Neue type, sharp edges, generous
+ * whitespace, one amber accent. Reuses tokens from gps-theme.css / patterns from
+ * gps-refine.css (.btn-default, .gps-hero-video, .gps-video-overlay, .gps-glass-panel).
+ * Do not hardcode hex — every color below is a var() from gps-theme.css.
+ * -------------------------------------------------------------------------------------- */
+
+/* =========================================================
+   1. PRODUCTS PAGE — HERO
+   ========================================================= */
+.gps-products-hero {
+	position: relative;
+	overflow: hidden;
+	min-height: 62vh;
+	display: flex;
+	align-items: flex-end;
+}
+
+.gps-products-hero > .container {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	padding-top: 140px;
+	padding-bottom: 80px;
+}
+
+.gps-products-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-family: var(--display-font);
+	font-size: 15px;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--accent-color) !important;
+	margin-bottom: 18px;
+}
+
+.gps-products-eyebrow::before {
+	content: '';
+	width: 34px;
+	height: 2px;
+	background: var(--accent-color);
+	display: inline-block;
+}
+
+.gps-products-title {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: clamp(56px, 9vw, 140px);
+	line-height: 0.92;
+	letter-spacing: 0;
+	color: var(--white-color) !important;
+	margin: 0 0 24px;
+	max-width: 16ch;
+}
+
+.gps-products-sub {
+	max-width: 640px;
+	font-size: clamp(16px, 1.6vw, 19px);
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.78) !important;
+	margin: 0 0 40px;
+}
+
+.gps-products-stats {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 36px;
+	padding-top: 28px;
+	border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.gps-stat {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.gps-stat-num {
+	font-family: var(--display-font);
+	font-size: clamp(30px, 3.4vw, 44px);
+	line-height: 1;
+	color: var(--white-color) !important;
+}
+
+.gps-stat-label {
+	font-size: 12px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* =========================================================
+   2. FILTER BAR — editorial strip, not a boxed card
+   ========================================================= */
+.gps-filters {
+	position: relative;
+	background: var(--secondary-color);
+	border-bottom: 1px solid var(--divider-color);
+	padding: 44px 0;
+}
+
+.gps-filter-form {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1.6fr auto;
+	gap: 0;
+	align-items: end;
+	column-gap: 40px;
+}
+
+.gps-filter-field {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.gps-filter-label {
+	font-family: var(--display-font);
+	font-size: 13px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.gps-filter-label i {
+	color: var(--accent-color);
+	font-size: 13px;
+}
+
+.gps-filter-select,
+.gps-filter-input {
+	appearance: none;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid var(--divider-color);
+	border-radius: 0;
+	padding: 10px 2px;
+	font-size: 16px;
+	color: var(--text-color);
+	transition: border-color 0.25s ease;
+}
+
+.gps-filter-select {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%239AA3AD' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 2px center;
+	padding-right: 22px;
+	cursor: pointer;
+}
+
+.gps-filter-select:focus,
+.gps-filter-input:focus {
+	outline: none;
+	border-color: var(--accent-color);
+	box-shadow: none;
+}
+
+.gps-filter-input::placeholder {
+	color: var(--text-muted);
+}
+
+.gps-filter-actions {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+}
+
+.gps-filter-clear {
+	font-size: 13px;
+	letter-spacing: 0.04em;
+	color: var(--text-muted);
+	text-decoration: none;
+	white-space: nowrap;
+	border-bottom: 1px solid transparent;
+	transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.gps-filter-clear:hover {
+	color: var(--accent-color);
+	border-color: var(--accent-color);
+}
+
+/* =========================================================
+   3. PRODUCTS GRID — sharp editorial cards
+   ========================================================= */
+.gps-products-grid-section {
+	padding: 110px 0;
+	background: var(--bg-color);
+}
+
+.gps-products-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1px;
+	background: var(--divider-color);
+	border: 1px solid var(--divider-color);
+}
+
+.gps-product-card {
+	position: relative;
+	background: var(--bg-color);
+	display: flex;
+	flex-direction: column;
+}
+
+.gps-product-card-link {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	color: inherit;
+	text-decoration: none;
+}
+
+.gps-product-card-link.gps-product-card-disabled {
+	cursor: not-allowed;
+}
+
+.gps-product-card-media {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 4 / 5;
+	overflow: hidden;
+	background: var(--secondary-color);
+}
+
+.gps-product-card-media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.gps-product-card-link:hover .gps-product-card-media img {
+	transform: scale(1.05);
+}
+
+.gps-product-card-disabled .gps-product-card-media img {
+	filter: grayscale(0.5);
+	opacity: 0.7;
+}
+
+.gps-badge {
+	position: absolute;
+	top: 16px;
+	left: 16px;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 7px 12px;
+	font-family: var(--display-font);
+	font-size: 11px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	background: var(--accent-color);
+	color: var(--accent-ink);
+	z-index: 2;
+}
+
+.gps-badge-soon {
+	left: auto;
+	right: 16px;
+	background: rgba(10, 12, 15, 0.82);
+	color: var(--white-color);
+	border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.gps-badge-stock {
+	left: auto;
+	right: 16px;
+	background: rgba(10, 12, 15, 0.82);
+	color: var(--white-color);
+	border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.gps-badge-stock.gps-stock-in_stock {
+	background: rgba(51, 199, 255, 0.16);
+	color: var(--accent-color-2);
+	border-color: rgba(51, 199, 255, 0.4);
+}
+
+.gps-badge-stock.gps-stock-out_of_stock {
+	background: rgba(220, 60, 60, 0.16);
+	color: #ff8080;
+	border-color: rgba(220, 60, 60, 0.4);
+}
+
+.gps-badge-stock.gps-stock-on_backorder {
+	background: rgba(255, 176, 32, 0.16);
+	color: var(--accent-color);
+	border-color: rgba(255, 176, 32, 0.4);
+}
+
+.gps-product-card-body {
+	padding: 26px 24px 24px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.gps-product-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: 14px;
+}
+
+.gps-product-tag {
+	font-size: 11px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	border: 1px solid var(--divider-color);
+	padding: 4px 9px;
+}
+
+.gps-product-title {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: 22px;
+	line-height: 1.12;
+	letter-spacing: 0.01em;
+	color: var(--text-color);
+	margin: 0 0 8px;
+	transition: color 0.25s ease;
+}
+
+.gps-product-card-link:hover .gps-product-title {
+	color: var(--accent-color);
+}
+
+.gps-product-sku {
+	font-family: var(--default-font);
+	font-size: 12px;
+	color: var(--text-muted);
+	margin-bottom: 10px;
+}
+
+.gps-product-desc {
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--text-muted);
+	margin: 0 0 20px;
+	flex: 1;
+}
+
+.gps-product-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 14px;
+	padding-top: 18px;
+	border-top: 1px solid var(--divider-color);
+}
+
+.gps-product-price {
+	display: flex;
+	align-items: baseline;
+	gap: 5px;
+	font-family: var(--display-font);
+	font-size: 20px;
+	color: var(--text-color);
+}
+
+.gps-product-price-currency {
+	font-family: var(--default-font);
+	font-size: 12px;
+	font-weight: 600;
+	color: var(--text-muted);
+}
+
+.gps-product-price-request {
+	font-size: 13px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--accent-color);
+}
+
+.gps-product-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 11px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: var(--accent-color);
+	white-space: nowrap;
+}
+
+.gps-product-card-link:hover .gps-product-cta {
+	color: var(--accent-color-2);
+}
+
+.gps-product-card-disabled .gps-product-cta {
+	color: var(--text-muted);
+}
+
+/* =========================================================
+   4. EMPTY STATE
+   ========================================================= */
+.gps-empty-state {
+	text-align: center;
+	padding: 120px 20px;
+}
+
+.gps-empty-icon {
+	font-size: 64px;
+	color: var(--divider-color);
+	margin-bottom: 24px;
+}
+
+.gps-empty-title {
+	font-family: var(--display-font);
+	font-size: clamp(30px, 4vw, 44px);
+	text-transform: uppercase;
+	color: var(--text-color);
+	margin: 0 0 14px;
+}
+
+.gps-empty-text {
+	color: var(--text-muted);
+	max-width: 460px;
+	margin: 0 auto 32px;
+	line-height: 1.6;
+}
+
+/* =========================================================
+   5. PAGINATION
+   ========================================================= */
+.gps-pagination {
+	display: flex;
+	justify-content: center;
+	padding-top: 70px;
+}
+
+.gps-pagination .pagination {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.gps-pagination .page-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 44px;
+	height: 44px;
+	padding: 0 14px;
+	border: 1px solid var(--divider-color);
+	border-radius: 0;
+	background: transparent;
+	color: var(--text-muted);
+	font-family: var(--display-font);
+	font-size: 15px;
+	transition: all 0.2s ease;
+}
+
+.gps-pagination .page-link:hover {
+	border-color: var(--accent-color);
+	color: var(--accent-color);
+	background: transparent;
+}
+
+.gps-pagination .page-item.active .page-link {
+	background: var(--accent-color);
+	border-color: var(--accent-color);
+	color: var(--accent-ink);
+}
+
+.gps-pagination .page-item.disabled .page-link {
+	opacity: 0.35;
+}
+
+/* =========================================================
+   6. PRODUCT DETAIL — Technical Specifications
+   ========================================================= */
+.gps-specs-section {
+	padding: 130px 0;
+	background: var(--bg-color);
+}
+
+.gps-section-head {
+	max-width: 720px;
+	margin: 0 0 60px;
+}
+
+.gps-section-head.gps-center {
+	max-width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.gps-section-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-family: var(--display-font);
+	font-size: 14px;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--accent-color);
+	margin-bottom: 16px;
+}
+
+.gps-section-eyebrow::before {
+	content: '';
+	width: 30px;
+	height: 2px;
+	background: var(--accent-color);
+	display: inline-block;
+}
+
+.gps-center .gps-section-eyebrow::before {
+	display: none;
+}
+
+.gps-section-title {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: clamp(34px, 4.4vw, 58px);
+	line-height: 1;
+	color: var(--text-color);
+	margin: 0;
+}
+
+.gps-specs-table {
+	max-width: 900px;
+	margin: 0 auto;
+	border-top: 1px solid var(--divider-color);
+}
+
+.gps-spec-row {
+	display: grid;
+	grid-template-columns: minmax(180px, 320px) 1fr;
+	gap: 24px;
+	padding: 20px 0;
+	border-bottom: 1px solid var(--divider-color);
+	align-items: baseline;
+}
+
+.gps-spec-name {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-family: var(--display-font);
+	font-size: 17px;
+	letter-spacing: 0.01em;
+	text-transform: uppercase;
+	color: var(--text-color);
+}
+
+.gps-spec-name i {
+	color: var(--accent-color);
+	font-size: 14px;
+}
+
+.gps-spec-value {
+	font-size: 16px;
+	color: var(--text-muted);
+	text-align: right;
+}
+
+.gps-spec-unit {
+	color: var(--accent-color);
+	font-weight: 600;
+	margin-left: 4px;
+}
+
+/* =========================================================
+   7. PRODUCT GALLERY — asymmetric grid
+   ========================================================= */
+.gps-gallery-section {
+	padding: 130px 0;
+	background: var(--secondary-color);
+}
+
+.gps-gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-auto-rows: 220px;
+	gap: 4px;
+}
+
+.gps-gallery-item {
+	position: relative;
+	overflow: hidden;
+	grid-column: span 3;
+	grid-row: span 1;
+}
+
+.gps-gallery-item:first-child {
+	grid-column: span 4;
+	grid-row: span 2;
+}
+
+.gps-gallery-item:nth-child(2) {
+	grid-column: span 2;
+}
+
+.gps-gallery-item:nth-child(3) {
+	grid-column: span 2;
+}
+
+.gps-gallery-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gps-gallery-item:hover img {
+	transform: scale(1.06);
+}
+
+/* =========================================================
+   8. QUOTE SECTION
+   ========================================================= */
+.gps-quote-section {
+	padding: 130px 0;
+	background: var(--bg-color);
+}
+
+.gps-quote-grid {
+	display: grid;
+	grid-template-columns: 1.4fr 1fr;
+	gap: 70px;
+	align-items: start;
+}
+
+.gps-quote-form-panel .section-title h2 {
+	margin-bottom: 30px;
+}
+
+.gps-quote-info-panel {
+	background: var(--secondary-color);
+	border: 1px solid var(--gps-glass-border);
+	padding: 40px;
+	position: sticky;
+	top: 110px;
+}
+
+.gps-quote-info-image {
+	margin: -40px -40px 30px;
+	overflow: hidden;
+}
+
+.gps-quote-info-image img {
+	width: 100%;
+	height: 260px;
+	object-fit: cover;
+	display: block;
+}
+
+.gps-quote-info-title {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: clamp(26px, 3vw, 34px);
+	color: var(--text-color);
+	margin: 0 0 14px;
+}
+
+.gps-quote-info-desc {
+	color: var(--text-muted);
+	line-height: 1.7;
+	margin: 0 0 28px;
+}
+
+.gps-quote-details {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding-top: 24px;
+	border-top: 1px solid var(--divider-color);
+}
+
+.gps-quote-detail {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.gps-quote-detail-icon {
+	width: 42px;
+	height: 42px;
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--gps-glass-border);
+	color: var(--accent-color);
+}
+
+.gps-quote-detail-label {
+	font-size: 11px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	margin: 0 0 2px;
+}
+
+.gps-quote-detail-value {
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--text-color);
+	margin: 0;
+}
+
+/* =========================================================
+   9. RELATED PRODUCTS — horizontal strip
+   ========================================================= */
+.gps-related-section {
+	padding: 130px 0;
+	background: var(--secondary-color);
+}
+
+.gps-related-scroll {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1px;
+	background: var(--divider-color);
+	border: 1px solid var(--divider-color);
+}
+
+.gps-related-card {
+	background: var(--secondary-color);
+	display: flex;
+	flex-direction: column;
+}
+
+.gps-related-image {
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
+}
+
+.gps-related-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.5s ease;
+}
+
+.gps-related-card:hover .gps-related-image img {
+	transform: scale(1.06);
+}
+
+.gps-related-content {
+	padding: 22px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.gps-related-content h3 {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: 18px;
+	color: var(--text-color);
+	margin: 0 0 10px;
+}
+
+.gps-related-content p {
+	font-size: 13px;
+	line-height: 1.6;
+	color: var(--text-muted);
+	margin: 0 0 20px;
+	flex: 1;
+}
+
+.gps-related-content .btn-default {
+	align-self: flex-start;
+}
+
+/* =========================================================
+   10. RESPONSIVE
+   ========================================================= */
+@media (max-width: 1199px) {
+	.gps-products-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.gps-related-scroll {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.gps-quote-grid {
+		gap: 44px;
+	}
+}
+
+@media (max-width: 991px) {
+	.gps-products-hero > .container {
+		padding-top: 110px;
+		padding-bottom: 60px;
+	}
+
+	.gps-filter-form {
+		grid-template-columns: 1fr 1fr;
+		row-gap: 24px;
+		column-gap: 24px;
+	}
+
+	.gps-filter-actions {
+		grid-column: 1 / -1;
+	}
+
+	.gps-products-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.gps-specs-section,
+	.gps-gallery-section,
+	.gps-quote-section,
+	.gps-related-section,
+	.gps-products-grid-section {
+		padding: 80px 0;
+	}
+
+	.gps-quote-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.gps-quote-info-panel {
+		position: static;
+	}
+
+	.gps-gallery-grid {
+		grid-template-columns: repeat(4, 1fr);
+		grid-auto-rows: 180px;
+	}
+
+	.gps-gallery-item,
+	.gps-gallery-item:first-child,
+	.gps-gallery-item:nth-child(2),
+	.gps-gallery-item:nth-child(3) {
+		grid-column: span 2;
+		grid-row: span 1;
+	}
+}
+
+@media (max-width: 767px) {
+	.gps-filter-form {
+		grid-template-columns: 1fr;
+	}
+
+	.gps-products-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.gps-related-scroll {
+		grid-template-columns: 1fr;
+	}
+
+	.gps-spec-row {
+		grid-template-columns: 1fr;
+		gap: 6px;
+	}
+
+	.gps-spec-value {
+		text-align: left;
+	}
+
+	.gps-gallery-grid {
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: 160px;
+	}
+
+	.gps-gallery-item,
+	.gps-gallery-item:first-child,
+	.gps-gallery-item:nth-child(2),
+	.gps-gallery-item:nth-child(3) {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	.gps-quote-info-image {
+		margin: -24px -24px 24px;
+	}
+
+	.gps-quote-info-panel {
+		padding: 24px;
+	}
+}
+
+@media (max-width: 480px) {
+	.gps-products-stats {
+		gap: 24px;
+	}
+}
+
+/* =========================================================
+   11. REDUCED MOTION
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+	.gps-product-card-media img,
+	.gps-gallery-item img,
+	.gps-related-image img {
+		transition: none !important;
+	}
+}

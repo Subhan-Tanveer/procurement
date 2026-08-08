@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class ProductImage extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'product_id',
+        'media_file_id',
+        'image_path',
+        'alt_text',
+        'is_primary',
+        'sort_order',
+    ];
+
+    protected $casts = [
+        'is_primary' => 'boolean',
+        'sort_order' => 'integer',
+    ];
+
+    /**
+     * Get the product that owns the image.
+     */
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function mediaFile()
+    {
+        return $this->belongsTo(MediaFile::class);
+    }
+}

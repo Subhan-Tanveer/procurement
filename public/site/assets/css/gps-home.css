@@ -1,0 +1,638 @@
+/* ----------------------------------------------------------------------------------------
+ * GoodProcure — Homepage (full section rebuild, not a re-skin of the old -elite template)
+ * All colors reference tokens from gps-theme.css. Hero stays as previously rebuilt
+ * (full-bleed video, no cards) — everything below the marquee is rebuilt here.
+ * -------------------------------------------------------------------------------------- */
+
+.gps-section {
+	padding: 150px 0;
+}
+
+.gps-section--tight {
+	padding: 90px 0;
+}
+
+.gps-kicker {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-family: var(--accent-font);
+	font-size: 12px;
+	font-weight: 800;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--accent-color);
+	margin-bottom: 20px;
+}
+
+.gps-kicker::before {
+	content: '';
+	width: 22px;
+	height: 2px;
+	background: var(--accent-color);
+}
+
+.gps-headline {
+	font-family: var(--display-font);
+	text-transform: uppercase;
+	font-weight: 400;
+	line-height: 0.98;
+	letter-spacing: 0;
+	color: var(--text-color);
+	font-size: clamp(34px, 4.4vw, 64px);
+	margin: 0 0 26px;
+}
+
+.gps-lede {
+	max-width: 720px;
+	font-size: 18px;
+	line-height: 1.75;
+	color: var(--text-muted);
+}
+
+/* ---------- Trust strip ---------- */
+.gps-trust-strip {
+	border-top: 1px solid var(--divider-color);
+	border-bottom: 1px solid var(--divider-color);
+	padding: 46px 0;
+}
+
+.gps-trust-strip-inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 28px;
+}
+
+.gps-trust-strip-inner h3 {
+	font-family: var(--display-font);
+	text-transform: uppercase;
+	font-size: 28px;
+	color: var(--text-color);
+	margin: 0 0 6px;
+}
+
+.gps-trust-strip-inner p {
+	margin: 0;
+	color: var(--text-muted);
+	max-width: 480px;
+}
+
+.gps-trust-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px 28px;
+}
+
+.gps-trust-tags span {
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--accent-color-2);
+}
+
+/* ---------- Why This Matters: editorial split (glossary list + 3D scene) ---------- */
+.gps-matters-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 460px) 1fr;
+	gap: 64px;
+	align-items: start;
+	margin-top: 64px;
+}
+
+.gps-matters-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.gps-matters-row {
+	display: grid;
+	grid-template-columns: 56px 1fr;
+	gap: 20px;
+	padding: 26px 0;
+	border-bottom: 1px solid var(--divider-color);
+}
+
+.gps-matters-row:first-child {
+	border-top: 1px solid var(--divider-color);
+}
+
+.gps-matters-num {
+	font-family: var(--display-font);
+	font-size: 32px;
+	color: var(--accent-color);
+	line-height: 1;
+}
+
+.gps-matters-term {
+	font-family: var(--accent-font);
+	font-weight: 700;
+	font-size: 18px;
+	color: var(--text-color);
+	margin-bottom: 6px;
+}
+
+.gps-matters-def {
+	color: var(--text-muted);
+	font-size: 15px;
+	line-height: 1.6;
+	margin: 0;
+}
+
+.gps-matters-visual .gps-network-scene {
+	margin-top: 0;
+	height: 100%;
+	min-height: 460px;
+}
+
+@media (max-width: 991px) {
+	.gps-matters-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ---------- About Us ---------- */
+.gps-about-grid {
+	display: grid;
+	grid-template-columns: 0.9fr 1.1fr;
+	gap: 72px;
+	align-items: center;
+}
+
+.gps-about-figure {
+	position: relative;
+	overflow: hidden;
+	border-radius: 4px;
+}
+
+.gps-about-figure img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.gps-about-points {
+	display: flex;
+	flex-direction: column;
+	margin-top: 40px;
+}
+
+.gps-about-point {
+	display: grid;
+	grid-template-columns: 44px 1fr;
+	gap: 18px;
+	padding: 22px 0;
+	border-top: 1px solid var(--divider-color);
+}
+
+.gps-about-point:last-child {
+	border-bottom: 1px solid var(--divider-color);
+}
+
+.gps-about-point-mark {
+	font-family: var(--display-font);
+	font-size: 26px;
+	color: var(--accent-color-2);
+}
+
+.gps-about-point h3 {
+	font-family: var(--accent-font);
+	font-size: 17px;
+	font-weight: 700;
+	color: var(--text-color);
+	margin: 0 0 6px;
+}
+
+.gps-about-point p {
+	margin: 0;
+	color: var(--text-muted);
+	font-size: 15px;
+	line-height: 1.65;
+}
+
+.gps-callout {
+	margin-top: 36px;
+	padding: 30px 32px;
+	border-left: 3px solid var(--accent-color);
+	background: var(--secondary-color);
+}
+
+.gps-callout h4 {
+	font-family: var(--display-font);
+	text-transform: uppercase;
+	font-size: 22px;
+	color: var(--text-color);
+	margin: 0 0 10px;
+}
+
+.gps-callout p {
+	margin: 0;
+	color: var(--text-muted);
+	font-size: 15px;
+	line-height: 1.7;
+}
+
+@media (max-width: 991px) {
+	.gps-about-grid {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+}
+
+/* ---------- Founder quote ---------- */
+.gps-quote {
+	max-width: 980px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.gps-quote-mark {
+	font-family: var(--display-font);
+	font-size: 120px;
+	line-height: 1;
+	color: var(--accent-color);
+	opacity: 0.5;
+	margin-bottom: -20px;
+}
+
+.gps-quote p {
+	font-family: var(--display-font);
+	text-transform: none;
+	font-size: clamp(22px, 3vw, 34px);
+	line-height: 1.35;
+	color: var(--text-color);
+	margin: 0 0 26px;
+}
+
+.gps-quote-sign {
+	margin-top: 30px;
+	font-family: var(--accent-font);
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--accent-color-2);
+}
+
+/* ---------- Services: row list, not card grid ---------- */
+.gps-service-list {
+	margin-top: 60px;
+	border-top: 1px solid var(--divider-color);
+}
+
+.gps-service-row {
+	display: grid;
+	grid-template-columns: 90px 1fr auto;
+	align-items: center;
+	gap: 28px;
+	padding: 34px 0;
+	border-bottom: 1px solid var(--divider-color);
+	text-decoration: none;
+	transition: padding-left 0.25s ease, background-color 0.25s ease;
+}
+
+.gps-service-row:hover {
+	padding-left: 18px;
+	background: var(--secondary-color);
+}
+
+.gps-service-num {
+	font-family: var(--display-font);
+	font-size: 30px;
+	color: var(--accent-color);
+}
+
+.gps-service-copy h3 {
+	font-family: var(--display-font);
+	text-transform: uppercase;
+	font-size: clamp(22px, 2.6vw, 32px);
+	color: var(--text-color);
+	margin: 0 0 8px;
+	letter-spacing: 0;
+}
+
+.gps-service-copy p {
+	margin: 0;
+	color: var(--text-muted);
+	font-size: 15px;
+	max-width: 640px;
+}
+
+.gps-service-arrow {
+	font-size: 22px;
+	color: var(--accent-color-2);
+	transition: transform 0.25s ease;
+}
+
+.gps-service-row:hover .gps-service-arrow {
+	transform: translateX(6px);
+}
+
+.gps-service-extra {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+	margin-top: 48px;
+}
+
+@media (max-width: 767px) {
+	.gps-service-row {
+		grid-template-columns: 50px 1fr;
+	}
+
+	.gps-service-arrow {
+		display: none;
+	}
+
+	.gps-service-extra {
+		grid-template-columns: 1fr;
+	}
+}
+
+.gps-section-footer-note {
+	margin-top: 40px;
+	color: var(--text-muted);
+	font-size: 15px;
+}
+
+.gps-section-footer-note a {
+	color: var(--accent-color);
+	font-weight: 700;
+}
+
+/* ---------- Numbered process steps (How It Works / Our Approach) ---------- */
+.gps-process-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 0;
+	margin-top: 64px;
+}
+
+.gps-process-step {
+	padding: 0 32px 0 0;
+	border-left: 1px solid var(--divider-color);
+	padding-left: 32px;
+}
+
+.gps-process-step:first-child {
+	border-left: none;
+	padding-left: 0;
+}
+
+.gps-process-num {
+	font-family: var(--display-font);
+	font-size: 56px;
+	line-height: 1;
+	color: var(--accent-color);
+	margin-bottom: 18px;
+}
+
+.gps-process-step h4 {
+	font-family: var(--accent-font);
+	font-size: 18px;
+	font-weight: 700;
+	color: var(--text-color);
+	margin: 0 0 12px;
+}
+
+.gps-process-step p {
+	margin: 0;
+	color: var(--text-muted);
+	font-size: 15px;
+	line-height: 1.65;
+}
+
+@media (max-width: 767px) {
+	.gps-process-grid {
+		grid-template-columns: 1fr;
+		row-gap: 40px;
+	}
+
+	.gps-process-step,
+	.gps-process-step:first-child {
+		border-left: none;
+		padding-left: 0;
+		border-top: 1px solid var(--divider-color);
+		padding-top: 32px;
+	}
+
+	.gps-process-step:first-child {
+		border-top: none;
+		padding-top: 0;
+	}
+}
+
+/* ---------- Honest panel (No Reviews Yet) ---------- */
+.gps-panel {
+	background: var(--secondary-color);
+	border: 1px solid var(--gps-glass-border);
+	padding: 56px;
+}
+
+.gps-panel-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-family: var(--accent-font);
+	font-weight: 800;
+	font-size: 11px;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--accent-ink);
+	background: var(--accent-color);
+	padding: 8px 16px;
+	margin-bottom: 22px;
+}
+
+.gps-panel p {
+	max-width: 760px;
+	color: var(--text-muted);
+	font-size: 16px;
+	line-height: 1.75;
+	margin: 0;
+}
+
+@media (max-width: 767px) {
+	.gps-panel {
+		padding: 34px 26px;
+	}
+}
+
+/* ---------- Why Us ---------- */
+.gps-why-grid {
+	display: grid;
+	grid-template-columns: 0.85fr 1.15fr;
+	gap: 72px;
+	align-items: center;
+}
+
+.gps-why-figure {
+	overflow: hidden;
+	border-radius: 4px;
+	margin-bottom: 28px;
+}
+
+.gps-why-figure img {
+	display: block;
+	width: 100%;
+	max-height: 340px;
+	object-fit: cover;
+}
+
+.gps-why-list {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0;
+	border-top: 1px solid var(--divider-color);
+	border-left: 1px solid var(--divider-color);
+}
+
+.gps-why-item {
+	padding: 28px 26px;
+	border-right: 1px solid var(--divider-color);
+	border-bottom: 1px solid var(--divider-color);
+	transition: background-color 0.2s ease;
+}
+
+.gps-why-item:hover {
+	background: var(--secondary-color);
+}
+
+.gps-why-item h4 {
+	font-family: var(--accent-font);
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--text-color);
+	margin: 0 0 8px;
+}
+
+.gps-why-item p {
+	margin: 0;
+	color: var(--text-muted);
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+	.gps-why-grid {
+		grid-template-columns: 1fr;
+		gap: 36px;
+	}
+}
+
+@media (max-width: 575px) {
+	.gps-why-list {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ---------- FAQ ---------- */
+.gps-faq-grid {
+	display: grid;
+	grid-template-columns: 0.8fr 1.2fr;
+	gap: 64px;
+}
+
+.gps-faq-list {
+	border-top: 1px solid var(--divider-color);
+}
+
+.gps-faq-item {
+	border-bottom: 1px solid var(--divider-color);
+}
+
+.gps-faq-item .accordion-button {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	padding: 26px 0;
+	font-family: var(--accent-font);
+	font-size: 17px;
+	font-weight: 600;
+	color: var(--text-color);
+	text-align: left;
+}
+
+.gps-faq-item .accordion-button::after {
+	content: '+';
+	flex-shrink: 0;
+	font-family: var(--display-font);
+	font-size: 26px;
+	color: var(--accent-color);
+	background: none;
+	width: auto;
+	height: auto;
+	transition: transform 0.25s ease;
+}
+
+.gps-faq-item .accordion-button:not(.collapsed)::after {
+	content: '\2212';
+}
+
+.gps-faq-item .accordion-body {
+	padding: 0 0 28px;
+	color: var(--text-muted);
+	font-size: 15px;
+	line-height: 1.7;
+	max-width: 620px;
+}
+
+@media (max-width: 991px) {
+	.gps-faq-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+}
+
+/* ---------- Contact form ---------- */
+.gps-contact-panel {
+	max-width: 880px;
+	margin: 0 auto;
+}
+
+.gps-contact-panel h2 {
+	font-family: var(--display-font);
+	text-transform: uppercase;
+	font-size: clamp(24px, 3vw, 34px);
+	color: var(--text-color);
+	margin-bottom: 36px;
+}
+
+.gps-form-label {
+	display: block;
+	font-family: var(--accent-font);
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	margin-bottom: 10px;
+}
+
+.gps-form-control {
+	width: 100%;
+	background: var(--secondary-color);
+	border: 1px solid var(--gps-glass-border);
+	border-radius: 2px;
+	padding: 15px 18px;
+	color: var(--text-color);
+	font-size: 15px;
+	transition: border-color 0.2s ease;
+}
+
+.gps-form-control:focus {
+	outline: none;
+	border-color: var(--accent-color);
+}
+
+.gps-form-control::placeholder {
+	color: var(--text-muted);
+}

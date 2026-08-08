@@ -1,0 +1,782 @@
+/* ----------------------------------------------------------------------------------------
+ * GoodProcure — Refine Layer
+ * Cinematic hero, glass panels, 3D network scene, scroll-drawn process lines, tilt cards,
+ * theme toggle. All colors reference tokens from gps-theme.css — no hardcoded hex.
+ * -------------------------------------------------------------------------------------- */
+
+/* ---------- Theme toggle ---------- */
+.gps-theme-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 42px;
+	height: 42px;
+	margin-right: 14px;
+	border-radius: 50%;
+	border: 1px solid var(--gps-glass-border);
+	background: var(--gps-glass-bg);
+	color: var(--primary-color);
+	cursor: pointer;
+	flex-shrink: 0;
+	transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.gps-theme-toggle:hover {
+	border-color: var(--accent-color);
+	transform: translateY(-1px);
+}
+
+.gps-theme-toggle svg {
+	width: 20px;
+	height: 20px;
+}
+
+.gps-theme-toggle .gps-icon-moon { display: none; }
+:root[data-theme="light"] .gps-theme-toggle .gps-icon-sun { display: none; }
+:root[data-theme="light"] .gps-theme-toggle .gps-icon-moon { display: inline-block; }
+
+/* ---------- Hero cinematic canvas ---------- */
+.gps-hero-canvas-wrap {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.gps-hero-canvas-wrap canvas {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	opacity: var(--gps-canvas-opacity);
+}
+
+.hero-elite {
+	position: relative;
+	max-width: none;
+	border-radius: 0;
+	margin: 0;
+	min-height: 92vh;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+
+.gps-hero-canvas-wrap {
+	z-index: 1;
+}
+
+/* Full-bleed hero: text sits directly on the video, no boxed panel, no side image column. */
+.hero-content-elite {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	max-width: 860px;
+	background: transparent;
+	border-radius: 0;
+	padding: 28px 0 0;
+	display: flex;
+	flex-direction: column;
+	gap: 22px;
+}
+
+.hero-content-body-elite {
+	padding-top: 20px !important;
+}
+
+.hero-tagline-elite {
+	margin: 6px 0 10px !important;
+}
+
+.hero-content-header-elite .section-title p {
+	line-height: 1.6;
+	margin-bottom: 14px;
+}
+
+.hero-content-elite .section-title h3,
+.hero-content-elite .section-title p {
+	color: var(--white-color);
+}
+
+.hero-content-body-elite {
+	border-top: 1px solid var(--dark-divider-color);
+}
+
+.hero-content-body-elite ul li {
+	color: var(--white-color);
+}
+
+/* ---------- Hero / page-header background video ---------- */
+.gps-hero-video {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 0;
+	pointer-events: none;
+}
+
+/* The template's own .page-header:before washes the video in solid brand-blue at 80%
+   opacity — replace it with the same dark gradient tint used everywhere else on the site
+   so the video actually shows through instead of being buried under a flat color. */
+.page-header:before {
+	background-color: transparent;
+	background-image: linear-gradient(180deg, rgba(10, 12, 15, 0.5) 0%, rgba(10, 12, 15, 0.82) 100%);
+	opacity: 1;
+}
+
+.page-header .gps-hero-video {
+	z-index: 0;
+}
+
+/* .page-header-elite and .hero-elite have no built-in tint, so give the video one. */
+.gps-video-overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	background: linear-gradient(180deg, rgba(10, 12, 15, 0.55) 0%, rgba(10, 12, 15, 0.85) 100%);
+	pointer-events: none;
+}
+
+.page-header-elite {
+	position: relative;
+	overflow: hidden;
+}
+
+.page-header-elite > .container {
+	position: relative;
+	z-index: 2;
+}
+
+/* ---------- .page-header content composition ----------
+   The template centers this block (text-align: center on the box, justify-content:
+   center on the breadcrumb, h1 as an inline-block). For a huge multi-line display
+   headline, center-aligning lines of very different lengths reads as messy/random —
+   every reference site we're matching (BW Pro, ATX, Tandy's) anchors this bottom-left
+   instead. Used on services, every service detail page, and both blog pages. */
+.page-header {
+	display: flex;
+	align-items: flex-end;
+	min-height: 62vh;
+	padding-top: 160px;
+	padding-bottom: 80px;
+}
+
+.page-header-box {
+	text-align: left;
+	max-width: 820px;
+}
+
+.page-header-box h1 {
+	display: block;
+	text-align: left;
+	font-size: clamp(40px, 6vw, 84px);
+	line-height: 0.98;
+}
+
+.page-header-box .gps-header-lede {
+	margin-left: 0;
+}
+
+.page-header-box nav {
+	margin-top: 26px;
+}
+
+.page-header-box ol,
+.page-header-box ol.breadcrumb {
+	justify-content: flex-start !important;
+}
+
+@media (max-width: 767px) {
+	.page-header {
+		min-height: 50vh;
+		padding-top: 130px;
+		padding-bottom: 56px;
+	}
+}
+
+/* Video + dark overlay always sits behind this header, so force light text
+   regardless of the active site theme (unlike .page-header, this class has
+   no built-in tint/text-color rule of its own). */
+.page-header-elite .page-header-content h1,
+.page-header-elite .page-header-content p,
+.page-header-elite .product-stats .stat-item,
+.page-header-elite .product-stats .stat-item strong,
+.page-header-elite .product-stats .stat-divider {
+	color: var(--white-color) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.gps-hero-video {
+		display: none;
+	}
+}
+
+/* ---------- Glass panel utility ---------- */
+.gps-glass-panel {
+	background: var(--gps-glass-bg);
+	border: 1px solid var(--gps-glass-border);
+	backdrop-filter: blur(10px);
+	border-radius: 18px;
+}
+
+/* ---------- 3D supply-chain network scene ---------- */
+.gps-network-scene {
+	position: relative;
+	width: 100%;
+	height: 460px;
+	margin-top: 32px;
+	border-radius: 20px;
+	overflow: hidden;
+	background: url('../images/service-technology-it-procurement.jpg');
+	background-size: cover;
+	background-position: center;
+	border: 1px solid var(--gps-glass-border);
+}
+
+.gps-network-scene::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(ellipse at 30% 25%, var(--gps-glow) 0%, transparent 55%),
+		linear-gradient(160deg, color-mix(in srgb, var(--secondary-color) 62%, transparent) 0%, color-mix(in srgb, var(--bg-color) 72%, transparent) 100%);
+	pointer-events: none;
+}
+
+.gps-network-scene canvas {
+	position: absolute;
+	inset: 0;
+	width: 100% !important;
+	height: 100% !important;
+	display: block;
+}
+
+.gps-network-fallback {
+	position: absolute;
+	inset: 0;
+	display: none;
+	padding: 24px;
+}
+
+.gps-network-scene.gps-fallback-active .gps-network-fallback {
+	display: block;
+}
+
+.gps-network-fallback svg {
+	width: 100%;
+	height: 100%;
+}
+
+.gps-network-fallback .gps-node-dot {
+	fill: var(--accent-color);
+}
+
+.gps-network-fallback .gps-node-line {
+	stroke: var(--gps-node-line);
+	stroke-width: 1.5;
+	fill: none;
+}
+
+.gps-network-fallback .gps-node-label {
+	fill: var(--text-color);
+	font-family: var(--accent-font);
+	font-size: 13px;
+	font-weight: 700;
+}
+
+@media (max-width: 767px) {
+	.gps-network-scene {
+		height: 340px;
+	}
+}
+
+/* ---------- Scroll-drawn process line ---------- */
+.gps-process-line-wrap {
+	position: relative;
+}
+
+.gps-process-line-svg {
+	position: absolute;
+	top: 26px;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	overflow: visible;
+	pointer-events: none;
+}
+
+.gps-process-line-path {
+	stroke: var(--accent-color);
+	stroke-width: 2;
+	fill: none;
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	vector-effect: non-scaling-stroke;
+}
+
+@media (max-width: 991px) {
+	.gps-process-line-svg { display: none; }
+}
+
+/* ---------- Service card 3D tilt ---------- */
+.service-item-elite {
+	transform-style: preserve-3d;
+	perspective: 800px;
+	will-change: transform;
+}
+
+.service-item-elite .service-item-header-elite,
+.service-item-elite .service-item-body-elite {
+	transform: translateZ(0);
+}
+
+/* ---------- Step / honest cards: theme-aware panel instead of the template's hardcoded white ---------- */
+.step-item-elite,
+.honest-card-elite {
+	position: relative;
+	background: var(--secondary-color) !important;
+	border-color: var(--gps-glass-border) !important;
+}
+
+.honest-card-elite::before {
+	box-shadow: none;
+}
+
+.step-item-elite:hover {
+	box-shadow: 0 0 0 1px var(--gps-glass-border), 0 18px 40px -20px var(--gps-glow);
+}
+
+/* ---------- More hardcoded-white leftovers from the old light template ---------- */
+.glossary-elite {
+	background: var(--secondary-color) !important;
+}
+
+.contact-form .form-control {
+	background: var(--secondary-color) !important;
+	border: 1px solid var(--gps-glass-border) !important;
+	color: var(--text-color) !important;
+}
+
+.contact-form .form-control::placeholder {
+	color: var(--text-muted) !important;
+}
+
+.gps-cookie-consent {
+	background: var(--secondary-color) !important;
+	border-top-color: var(--gps-glass-border) !important;
+}
+
+.gps-cookie-btn:hover {
+	background: var(--accent-ink) !important;
+	border-color: var(--accent-color) !important;
+	color: var(--accent-color) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.service-item-elite {
+		transform: none !important;
+	}
+}
+
+/* ---------- Bold display typography ---------- */
+.hero-content-header-elite .section-title h1,
+.section-title h2 {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.005em;
+}
+
+.hero-content-header-elite .section-title h1 {
+	font-size: clamp(52px, 8vw, 132px);
+	line-height: 0.94;
+	letter-spacing: 0;
+}
+
+.section-title h2 {
+	font-size: clamp(30px, 4vw, 52px);
+	line-height: 1.02;
+}
+
+.founder-quote-body p,
+.hero-tagline-elite {
+	font-family: var(--display-font);
+	text-transform: uppercase;
+}
+
+.hero-tagline-elite {
+	font-size: clamp(28px, 4vw, 44px);
+	letter-spacing: 0.01em;
+	color: var(--accent-color);
+}
+
+/* ---------- Sharp, confident buttons (no soft pill radius) ---------- */
+.btn-default {
+	border-radius: 3px !important;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	font-weight: 800 !important;
+	box-shadow: 0 0 0 0 var(--gps-glow);
+	transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.btn-default:hover {
+	box-shadow: 0 0 32px 2px var(--gps-glow);
+	transform: translateY(-1px);
+}
+
+/* ---------- Marquee ticker ---------- */
+.gps-marquee {
+	position: relative;
+	overflow: hidden;
+	border-top: 1px solid var(--divider-color);
+	border-bottom: 1px solid var(--divider-color);
+	background: var(--secondary-color);
+	padding: 18px 0;
+}
+
+.gps-marquee-track {
+	display: flex;
+	width: max-content;
+	animation: gps-marquee-scroll 32s linear infinite;
+}
+
+.gps-marquee-track span {
+	display: inline-flex;
+	align-items: center;
+	white-space: nowrap;
+	font-family: var(--display-font);
+	font-size: 22px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	padding: 0 28px;
+}
+
+.gps-marquee-track span::after {
+	content: '\2726';
+	margin-left: 28px;
+	color: var(--accent-color);
+	font-size: 14px;
+}
+
+@keyframes gps-marquee-scroll {
+	from { transform: translateX(0); }
+	to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.gps-marquee-track {
+		animation: none;
+	}
+}
+
+/* ---------- Footer (full rebuild, replaces the old -elite footer) ---------- */
+.gps-footer {
+	background: var(--bg-color);
+	border-top: 1px solid var(--divider-color);
+	padding: 90px 0 0;
+}
+
+.gps-footer-top {
+	display: grid;
+	grid-template-columns: 1.6fr 1fr 1fr 1fr;
+	gap: 48px;
+	padding-bottom: 64px;
+	border-bottom: 1px solid var(--divider-color);
+}
+
+.gps-footer-logo {
+	display: inline-block;
+	margin-bottom: 22px;
+}
+
+.gps-footer-logo img {
+	height: 40px;
+	width: auto;
+}
+
+.gps-footer-brand p {
+	color: var(--text-muted);
+	font-size: 15px;
+	line-height: 1.7;
+	max-width: 380px;
+	margin-bottom: 26px;
+}
+
+.gps-footer-social {
+	display: flex;
+	gap: 12px;
+}
+
+.gps-footer-social a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 3px;
+	border: 1px solid var(--gps-glass-border);
+	color: var(--accent-color);
+	font-size: 15px;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.gps-footer-social a:hover {
+	border-color: var(--accent-color);
+	box-shadow: 0 0 20px var(--gps-glow);
+	color: var(--white-color);
+}
+
+.gps-footer-col h3 {
+	font-family: var(--display-font);
+	font-size: 20px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--text-color);
+	margin-bottom: 22px;
+}
+
+.gps-footer-col ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.gps-footer-col ul li a {
+	color: var(--text-muted);
+	font-size: 15px;
+	transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.gps-footer-col ul li a:hover {
+	color: var(--accent-color);
+	padding-left: 4px;
+}
+
+.gps-footer-contact {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 18px;
+}
+
+.gps-footer-phone {
+	font-family: var(--display-font);
+	font-size: 26px;
+	letter-spacing: 0.01em;
+	color: var(--text-color);
+}
+
+.gps-footer-phone:hover {
+	color: var(--accent-color);
+}
+
+.gps-footer-bottom {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px 24px;
+	padding: 28px 0;
+}
+
+.gps-footer-bottom p {
+	margin: 0;
+	font-size: 13px;
+	color: var(--text-muted);
+}
+
+.gps-footer-bottom a {
+	color: var(--text-muted);
+}
+
+.gps-footer-bottom a:hover {
+	color: var(--accent-color);
+}
+
+@media (max-width: 991px) {
+	.gps-footer-top {
+		grid-template-columns: 1fr 1fr;
+		row-gap: 44px;
+	}
+
+	.gps-footer-brand {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 575px) {
+	.gps-footer {
+		padding-top: 64px;
+	}
+
+	.gps-footer-top {
+		grid-template-columns: 1fr;
+	}
+
+	.gps-footer-bottom {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+/* ----------------------------------------------------------------------------------------
+ * Structural layer — this is what actually reads as "custom built" vs. "recolored template".
+ * The base theme wraps nearly every section in .bg-section: a centered 1880px rounded card
+ * with margin on all sides. That's what makes the page read as a stack of boxes regardless
+ * of color. Killing that box, widening the canvas, and opening up vertical rhythm is the fix.
+ * -------------------------------------------------------------------------------------- */
+.bg-section {
+	max-width: none;
+	width: 100%;
+	border-radius: 0;
+	margin: 0;
+}
+
+.container {
+	max-width: 1360px;
+}
+
+/* Generous, editorial vertical rhythm instead of the template's tight 100px default. */
+.our-services-elite,
+.why-choose-us-elite,
+.about-us-elite,
+.our-journey-elite,
+.our-faqs,
+.page-contact-us,
+.where-we-work-elite {
+	padding: 140px 0;
+}
+
+.section-row {
+	margin-bottom: 100px;
+}
+
+.section-title {
+	margin-bottom: 56px;
+}
+
+/* Flatten the template's soft-rounded-corner default on cards for a sharper, less "SaaS kit" feel. */
+.service-item-elite,
+.step-item-elite,
+.honest-card-elite,
+.contact-info-item,
+.glossary-elite {
+	border-radius: 4px;
+}
+
+body,
+.section-title p,
+.about-us-content-elite p,
+.honest-card-elite p {
+	font-size: 17px;
+	line-height: 1.75;
+}
+
+@media (max-width: 991px) {
+	.our-services-elite,
+	.why-choose-us-elite,
+	.about-us-elite,
+	.our-journey-elite,
+	.our-faqs,
+	.page-contact-us,
+	.where-we-work-elite {
+		padding: 90px 0;
+	}
+
+	.section-row {
+		margin-bottom: 60px;
+	}
+}
+
+/* ----------------------------------------------------------------------------------------
+ * Header — slim it down. The template default floats the bar with 20px outer margin,
+ * 25px padding on every side, a 50px circular phone icon, and generous gaps, which reads
+ * heavy/bulky. Flatten it to a thin bar that sits flush against the top of the viewport.
+ * -------------------------------------------------------------------------------------- */
+.main-header.header-elite {
+	margin: 0;
+}
+
+.main-header.header-elite .header-sticky {
+	border-radius: 0;
+	border-bottom: 1px solid var(--divider-color);
+}
+
+.main-header.header-elite .navbar {
+	padding: 14px 0;
+}
+
+.brand-logo-elite img {
+	max-height: 34px;
+}
+
+.main-menu ul li a {
+	padding: 8px !important;
+	font-size: 14px;
+	letter-spacing: 0.01em;
+}
+
+.header-contact-box {
+	gap: 14px 22px;
+	align-items: center;
+}
+
+.header-contact-item {
+	gap: 10px;
+}
+
+.header-contact-item .icon-box {
+	width: 34px;
+	height: 34px;
+}
+
+.header-contact-item .icon-box img {
+	width: 14px;
+}
+
+.header-contact-item-content p {
+	display: none;
+}
+
+.header-contact-item-content h3 {
+	font-size: 14px;
+}
+
+.gps-theme-toggle {
+	width: 34px;
+	height: 34px;
+	margin-right: 4px;
+}
+
+.header-btn .btn-default {
+	padding: 11px 22px !important;
+	font-size: 13px;
+}
+
+.header-contact-item-content h3,
+.header-contact-item-content h3 a {
+	white-space: nowrap;
+}
+
+/* Base template only pads containers 15px, so content hugs the viewport edge on wide
+   screens — especially .container-fluid (header, hero) which has no max-width at all. */
+.container,
+.container-fluid,
+.bg-section .container-fluid {
+	padding-left: clamp(20px, 4vw, 64px);
+	padding-right: clamp(20px, 4vw, 64px);
+}
+
+@media (max-width: 1199px) {
+	.header-contact-item {
+		display: none;
+	}
+}

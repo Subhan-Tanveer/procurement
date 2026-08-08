@@ -1,0 +1,578 @@
+/* ==========================================================================
+   GPS Services + Service Single — genuine section rebuild
+   Scope: resources/views/site/services.blade.php
+          resources/views/site/service_single.blade.php
+   Reuses design tokens from gps-theme.css and utilities from gps-refine.css.
+   Do not hardcode hex colors here — use the CSS custom properties only.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. Page header — eyebrow + lede on top of the existing video hero
+   --------------------------------------------------------------------- */
+.gps-services-header .page-header-box {
+	max-width: 900px;
+}
+
+.gps-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 18px;
+	font-family: var(--default-font);
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--accent-color) !important;
+}
+
+.gps-eyebrow::before {
+	content: '';
+	display: inline-block;
+	width: 28px;
+	height: 1px;
+	background: var(--accent-color);
+}
+
+.gps-header-lede {
+	max-width: 640px;
+	margin: 22px 0 0;
+	font-size: clamp(16px, 1.6vw, 19px);
+	line-height: 1.6;
+	color: var(--white-color) !important;
+	opacity: 0.85;
+}
+
+/* ---------------------------------------------------------------------
+   2. Services listing — editorial numbered rows instead of a card grid
+   --------------------------------------------------------------------- */
+.gps-services-listing {
+	padding: 130px 0;
+}
+
+.gps-services-listing .container {
+	border-top: 1px solid var(--divider-color);
+}
+
+.gps-service-row {
+	position: relative;
+	display: grid;
+	grid-template-columns: 90px minmax(220px, 340px) 1fr;
+	align-items: center;
+	gap: 40px;
+	padding: 48px 0;
+	border-bottom: 1px solid var(--divider-color);
+	transition: padding-left 0.35s ease;
+}
+
+.gps-service-row:hover {
+	padding-left: 12px;
+}
+
+.gps-service-row-index {
+	font-family: var(--display-font);
+	font-size: clamp(36px, 4vw, 56px);
+	line-height: 1;
+	color: var(--text-muted);
+	opacity: 0.5;
+	transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.gps-service-row:hover .gps-service-row-index {
+	color: var(--accent-color);
+	opacity: 1;
+}
+
+.gps-service-row-media {
+	position: relative;
+	overflow: hidden;
+	border-radius: 2px;
+}
+
+.gps-service-row-media a {
+	display: block;
+}
+
+.gps-service-row-media figure {
+	margin: 0;
+	display: block;
+	overflow: hidden;
+}
+
+.gps-service-row-media img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	transition: transform 0.6s ease;
+}
+
+.gps-service-row:hover .gps-service-row-media img {
+	transform: scale(1.06);
+}
+
+.gps-service-row-body {
+	min-width: 0;
+}
+
+.gps-service-row-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 46px;
+	height: 46px;
+	margin-bottom: 18px;
+	border: 1px solid var(--divider-color);
+	border-radius: 2px;
+	color: var(--accent-color);
+	font-size: 18px;
+}
+
+.gps-service-row-body h3 {
+	margin: 0 0 14px;
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: clamp(24px, 2.4vw, 34px);
+	line-height: 1.08;
+	letter-spacing: 0.01em;
+}
+
+.gps-service-row-body h3 a {
+	color: var(--text-color);
+	transition: color 0.3s ease;
+}
+
+.gps-service-row:hover .gps-service-row-body h3 a {
+	color: var(--accent-color);
+}
+
+.gps-service-row-body p {
+	max-width: 640px;
+	margin: 0 0 22px;
+	color: var(--text-muted);
+	line-height: 1.7;
+}
+
+.gps-service-row-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--text-color);
+	border-bottom: 1px solid var(--divider-color);
+	padding-bottom: 4px;
+	transition: color 0.3s ease, border-color 0.3s ease, gap 0.3s ease;
+}
+
+.gps-service-row-link i {
+	font-size: 12px;
+	transition: transform 0.3s ease;
+}
+
+.gps-service-row:hover .gps-service-row-link {
+	color: var(--accent-color);
+	border-color: var(--accent-color);
+}
+
+.gps-service-row:hover .gps-service-row-link i {
+	transform: translateX(4px);
+}
+
+@media (max-width: 991px) {
+	.gps-services-listing {
+		padding: 90px 0;
+	}
+	.gps-service-row {
+		grid-template-columns: 60px 1fr;
+		grid-template-areas:
+			"index media"
+			"body body";
+		row-gap: 24px;
+	}
+	.gps-service-row-index { grid-area: index; align-self: start; }
+	.gps-service-row-media { grid-area: media; }
+	.gps-service-row-body { grid-area: body; }
+}
+
+@media (max-width: 575px) {
+	.gps-service-row {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"index"
+			"media"
+			"body";
+		gap: 18px;
+		padding: 34px 0;
+	}
+	.gps-service-row:hover {
+		padding-left: 0;
+	}
+}
+
+/* ---------------------------------------------------------------------
+   3. Service single — sidebar rebuild (category nav + CTA panel)
+   --------------------------------------------------------------------- */
+.gps-single-sidebar {
+	position: sticky;
+	top: 24px;
+}
+
+.gps-category-list {
+	background: transparent;
+	border-radius: 0;
+	border-top: 1px solid var(--divider-color);
+	overflow: visible;
+	margin-bottom: 40px;
+}
+
+.gps-category-list h3 {
+	background: transparent;
+	color: var(--text-color);
+	padding: 0;
+	margin: 26px 0 18px;
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	font-size: 22px;
+}
+
+.gps-category-list ul {
+	padding: 0;
+}
+
+.gps-category-list ul li {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding-left: 0;
+	padding-bottom: 18px;
+	margin-bottom: 18px;
+	border-bottom: 1px solid var(--divider-color);
+}
+
+.gps-category-list ul li:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+.gps-category-list ul li::before {
+	content: '';
+	flex-shrink: 0;
+	margin-top: 8px;
+	width: 6px;
+	height: 6px;
+	background: var(--divider-color);
+	transition: background 0.3s ease;
+}
+
+.gps-category-list ul li a {
+	flex: 1;
+	min-width: 0;
+	padding-right: 0;
+	font-weight: 600;
+	line-height: 1.5;
+}
+
+.gps-category-list ul li a::before {
+	content: none;
+}
+
+.gps-category-list ul li.active,
+.gps-category-list ul li:hover {
+	color: var(--accent-color);
+}
+
+.gps-category-list ul li.active::before,
+.gps-category-list ul li:hover::before {
+	background: var(--accent-color);
+}
+
+.gps-category-list ul li.active a {
+	color: var(--accent-color);
+}
+
+.gps-cta-panel {
+	position: relative;
+	background: var(--secondary-color);
+	background-image: none;
+	border: 1px solid var(--divider-color);
+	border-radius: 2px;
+	padding: 40px 34px;
+	overflow: hidden;
+}
+
+.gps-cta-panel::before {
+	content: none;
+}
+
+.gps-cta-panel::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 3px;
+	height: 100%;
+	background: var(--accent-color);
+}
+
+.gps-cta-panel-content {
+	position: relative;
+	z-index: 1;
+}
+
+.gps-cta-eyebrow {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--accent-color);
+}
+
+.gps-cta-panel-content h3 {
+	color: var(--text-color) !important;
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: 24px;
+	line-height: 1.15;
+}
+
+.gps-cta-panel-content p {
+	color: var(--text-muted) !important;
+	margin: 16px 0 0 !important;
+}
+
+.gps-cta-panel-contact {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin-top: 34px !important;
+	padding-top: 24px;
+	border-top: 1px solid var(--divider-color);
+}
+
+.gps-cta-panel-contact i {
+	color: var(--accent-color);
+	font-size: 18px;
+}
+
+.gps-cta-panel-contact h3 {
+	margin: 0;
+	font-size: 22px;
+	color: var(--text-color) !important;
+}
+
+.gps-cta-panel-contact h3 a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.gps-cta-panel-contact h3 a:hover {
+	color: var(--accent-color);
+}
+
+@media (max-width: 991px) {
+	.gps-single-sidebar {
+		position: static;
+		margin-bottom: 60px;
+	}
+}
+
+/* ---------------------------------------------------------------------
+   4. Service entry — eyebrow tag, offer list as numbered rows
+   --------------------------------------------------------------------- */
+.gps-service-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 22px;
+	padding-bottom: 14px;
+	border-bottom: 1px solid var(--divider-color);
+}
+
+.gps-service-eyebrow i {
+	color: var(--accent-color);
+	font-size: 16px;
+}
+
+.gps-service-eyebrow span {
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+}
+
+.gps-offer-section h2 {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: clamp(28px, 3vw, 40px);
+}
+
+.gps-offer-list {
+	display: block;
+	margin-top: 30px;
+}
+
+.gps-offer-item {
+	position: relative;
+	width: 100% !important;
+	display: grid;
+	grid-template-columns: 56px 1fr;
+	gap: 20px;
+	padding: 26px 0;
+	border-top: 1px solid var(--divider-color);
+}
+
+.gps-offer-item:last-child {
+	border-bottom: 1px solid var(--divider-color);
+}
+
+.gps-offer-item::before {
+	content: none;
+}
+
+.gps-offer-item-index {
+	font-family: var(--display-font);
+	font-size: 28px;
+	color: var(--accent-color);
+	line-height: 1;
+}
+
+.gps-offer-item .service-offer-item-content h3 {
+	margin-bottom: 8px;
+}
+
+@media (max-width: 575px) {
+	.gps-offer-item {
+		grid-template-columns: 36px 1fr;
+	}
+	.gps-offer-item-index {
+		font-size: 20px;
+	}
+}
+
+/* ---------------------------------------------------------------------
+   5. Why choose — asymmetric split, theme-aware panel (no hardcoded white)
+   --------------------------------------------------------------------- */
+.gps-why-choose {
+	border-radius: 0;
+	overflow: visible;
+	display: block;
+}
+
+.gps-why-choose .service-why-choose-content {
+	background: transparent;
+	padding: 0;
+	border-top: 1px solid var(--divider-color);
+	padding-top: 34px;
+	margin-top: 34px;
+}
+
+.gps-why-choose .service-why-choose-content:first-child {
+	border-top: none;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+.gps-why-choose .service-why-choose-content h2 {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: clamp(26px, 2.8vw, 36px);
+}
+
+.gps-why-choose .service-why-choose-image {
+	margin: 24px 0;
+}
+
+.gps-why-choose .service-why-choose-image img {
+	border-radius: 2px;
+}
+
+/* service-why-choose-light no longer forces a hardcoded white background;
+   it simply mirrors the theme surface color like the default state. */
+.service-why-choose-light .service-why-choose-content {
+	background: transparent;
+}
+
+/* ---------------------------------------------------------------------
+   6. Related products — sharpen the generic bootstrap cards
+   --------------------------------------------------------------------- */
+.gps-related-products .section-title h2 {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: clamp(26px, 2.8vw, 36px);
+}
+
+.gps-related-card {
+	background: var(--secondary-color) !important;
+	border-radius: 2px !important;
+	border: 1px solid var(--divider-color) !important;
+}
+
+.gps-related-card .card-title {
+	color: var(--text-color);
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+}
+
+.gps-related-card .card-text {
+	color: var(--text-muted) !important;
+}
+
+.gps-related-card .text-primary {
+	color: var(--accent-color) !important;
+}
+
+/* ---------------------------------------------------------------------
+   7. FAQ — sharp dividers, display type, no boxed accordion cards
+   --------------------------------------------------------------------- */
+.gps-faq-section .section-title h2 {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+.gps-faq-accordion .accordion-item {
+	background: transparent !important;
+	border: none !important;
+	border-top: 1px solid var(--divider-color) !important;
+	border-radius: 0 !important;
+}
+
+.gps-faq-accordion .accordion-item:last-child {
+	border-bottom: 1px solid var(--divider-color) !important;
+}
+
+.gps-faq-accordion .accordion-button {
+	background: transparent !important;
+	box-shadow: none !important;
+	font-family: var(--default-font);
+	font-weight: 700;
+	color: var(--text-color) !important;
+}
+
+.gps-faq-accordion .accordion-body {
+	padding-top: 0 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.gps-service-row-media img,
+	.gps-service-row {
+		transition: none;
+	}
+}

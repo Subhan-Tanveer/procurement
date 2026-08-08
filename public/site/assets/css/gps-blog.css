@@ -1,0 +1,422 @@
+/* ----------------------------------------------------------------------------------------
+ * GPS Blog — Editorial rebuild for blog.blade.php and blog_single.blade.php
+ * Scope: page-header (blog variant only, via .gps-blog-header), the "coming soon" listing
+ * composition, and the single-post reading layout. New gps- prefixed classes throughout —
+ * does not touch gps-theme.css / gps-refine.css (parallel work happening there).
+ * Uses only CSS custom properties from gps-theme.css — no hardcoded hex values.
+ * -------------------------------------------------------------------------------------- */
+
+/* ==========================================================================
+   Shared: blog page-header (video hero) — bigger, quieter, more editorial.
+   Structure (.page-header > video.gps-hero-video + .container) is untouched;
+   scoped to .gps-blog-header so other pages using .page-header are unaffected.
+   ========================================================================== */
+.gps-blog-header.page-header {
+	min-height: 46vh;
+	display: flex;
+	align-items: flex-end;
+	padding-bottom: 64px;
+}
+
+.gps-blog-header .page-header-box h1 {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: clamp(48px, 9vw, 118px);
+	line-height: 0.92;
+	letter-spacing: 0;
+}
+
+.gps-blog-header .page-header-box .breadcrumb {
+	font-family: var(--default-font);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.gps-blog-header .post-single-meta .breadcrumb {
+	gap: 22px;
+}
+
+.gps-blog-header .post-single-meta .breadcrumb li {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--white-color);
+	opacity: 0.75;
+	font-size: 13px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+	.gps-blog-header.page-header {
+		min-height: 34vh;
+		padding-bottom: 40px;
+	}
+}
+
+/* ==========================================================================
+   Blog listing — editorial "coming soon" composition, not a bordered card.
+   ========================================================================== */
+.gps-blog-listing {
+	padding: 140px 0 150px;
+	background: var(--bg-color);
+}
+
+.gps-blog-listing-grid {
+	display: grid;
+	grid-template-columns: 1.1fr 1fr;
+	gap: 64px;
+	align-items: start;
+}
+
+.gps-blog-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-family: var(--default-font);
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--accent-color);
+	margin-bottom: 22px;
+}
+
+.gps-blog-eyebrow::before {
+	content: '';
+	width: 26px;
+	height: 1px;
+	background: var(--accent-color);
+}
+
+.gps-blog-listing-headline {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: clamp(40px, 5.4vw, 76px);
+	line-height: 0.98;
+	color: var(--text-color);
+	margin: 0 0 28px;
+}
+
+.gps-blog-listing-headline em {
+	font-style: normal;
+	color: var(--accent-color);
+}
+
+.gps-blog-listing-lede {
+	font-size: 18px;
+	line-height: 1.75;
+	color: var(--text-muted);
+	max-width: 46ch;
+	margin: 0 0 36px;
+}
+
+.gps-blog-listing-actions {
+	display: flex;
+	align-items: center;
+	gap: 22px;
+	flex-wrap: wrap;
+}
+
+.gps-blog-listing-actions .gps-blog-inline-link {
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	color: var(--text-color);
+	border-bottom: 1px solid var(--divider-color);
+	padding-bottom: 3px;
+	transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.gps-blog-listing-actions .gps-blog-inline-link:hover {
+	color: var(--accent-color);
+	border-color: var(--accent-color);
+}
+
+/* Right column: what the desk will cover, framed as a quiet index rather than a card */
+.gps-blog-preview {
+	border-left: 1px solid var(--divider-color);
+	padding-left: 44px;
+}
+
+.gps-blog-preview-label {
+	font-family: var(--default-font);
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	margin-bottom: 20px;
+}
+
+.gps-blog-preview-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.gps-blog-preview-list li {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 20px 0;
+	border-bottom: 1px solid var(--divider-color);
+	font-family: var(--display-font);
+	font-size: 22px;
+	letter-spacing: 0.01em;
+	text-transform: uppercase;
+	color: var(--text-color);
+}
+
+.gps-blog-preview-list li:first-child {
+	padding-top: 0;
+}
+
+.gps-blog-preview-list li span:last-child {
+	font-family: var(--default-font);
+	text-transform: none;
+	letter-spacing: normal;
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--text-muted);
+	white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+	.gps-blog-listing {
+		padding: 96px 0 100px;
+	}
+
+	.gps-blog-listing-grid {
+		grid-template-columns: 1fr;
+		gap: 48px;
+	}
+
+	.gps-blog-preview {
+		border-left: none;
+		padding-left: 0;
+		border-top: 1px solid var(--divider-color);
+		padding-top: 40px;
+	}
+}
+
+@media (max-width: 480px) {
+	.gps-blog-listing-headline {
+		font-size: 40px;
+	}
+
+	.gps-blog-preview-list li {
+		font-size: 18px;
+	}
+}
+
+/* ==========================================================================
+   Single post — editorial reading layout, narrower measure, quieter chrome.
+   ========================================================================== */
+.gps-post-single {
+	padding: 96px 0 140px;
+	background: var(--bg-color);
+}
+
+.gps-post-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 760px);
+	justify-content: center;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.gps-post-grid > [class*="col-"] {
+	padding-left: 0;
+	padding-right: 0;
+	max-width: 100%;
+}
+
+.gps-post-image {
+	margin-bottom: 56px;
+}
+
+.gps-post-image figure {
+	margin: 0;
+	overflow: hidden;
+}
+
+.gps-post-image img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.gps-post-content .post-entry {
+	font-size: 18px;
+	line-height: 1.85;
+	color: var(--text-color);
+}
+
+.gps-post-content .post-entry p {
+	color: var(--text-color);
+	margin-bottom: 26px;
+}
+
+.gps-post-content .post-entry h2 {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	font-size: clamp(28px, 3.4vw, 42px);
+	letter-spacing: 0.005em;
+	line-height: 1.05;
+	margin: 56px 0 24px;
+	color: var(--text-color);
+}
+
+.gps-post-content .post-entry ul {
+	margin: 0 0 26px;
+	padding: 0;
+	list-style: none;
+}
+
+.gps-post-content .post-entry ul li {
+	position: relative;
+	padding-left: 28px;
+	margin-bottom: 14px;
+	color: var(--text-color);
+}
+
+.gps-post-content .post-entry ul li::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 11px;
+	width: 12px;
+	height: 1px;
+	background: var(--accent-color);
+}
+
+/* Pull-quote treatment: no card border, just scale + accent rule */
+.gps-post-content .post-entry blockquote {
+	margin: 48px 0;
+	padding: 0 0 0 28px;
+	border-left: 2px solid var(--accent-color);
+	background: none;
+}
+
+.gps-post-content .post-entry blockquote p {
+	font-family: var(--display-font);
+	font-weight: 400;
+	text-transform: none;
+	font-size: clamp(22px, 2.6vw, 30px);
+	line-height: 1.35;
+	color: var(--text-color);
+	margin: 0;
+}
+
+/* Tag / share row — quiet, flex, no card box */
+.gps-post-footer {
+	margin-top: 56px;
+	padding-top: 32px;
+	border-top: 1px solid var(--divider-color);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	flex-wrap: wrap;
+}
+
+.gps-post-tags {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.gps-post-tags .gps-post-tags-label {
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	margin-right: 6px;
+}
+
+.gps-post-tags a {
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: var(--text-color);
+	border: 1px solid var(--divider-color);
+	border-radius: 3px;
+	padding: 7px 14px;
+	transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.gps-post-tags a:hover {
+	border-color: var(--accent-color);
+	color: var(--accent-color);
+}
+
+.gps-post-share {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.gps-post-share span {
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--text-muted);
+	margin-right: 4px;
+}
+
+.gps-post-share a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 38px;
+	height: 38px;
+	border: 1px solid var(--divider-color);
+	border-radius: 3px;
+	color: var(--text-color);
+	font-size: 14px;
+	transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gps-post-share a:hover {
+	border-color: var(--accent-color);
+	color: var(--accent-color);
+	box-shadow: 0 0 20px var(--gps-glow);
+}
+
+@media (max-width: 767px) {
+	.gps-post-single {
+		padding: 64px 0 90px;
+	}
+
+	.gps-post-image {
+		margin-bottom: 36px;
+	}
+
+	.gps-post-content .post-entry {
+		font-size: 16px;
+	}
+
+	.gps-post-footer {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.gps-post-share a,
+	.gps-post-tags a,
+	.gps-blog-listing-actions .gps-blog-inline-link {
+		transition: none;
+	}
+}
