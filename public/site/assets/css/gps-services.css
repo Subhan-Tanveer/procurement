@@ -566,8 +566,10 @@
 	color: var(--text-color) !important;
 }
 
-.gps-faq-accordion .accordion-body {
+.gps-faq-accordion .accordion-body,
+.gps-faq-accordion .accordion-body p {
 	padding-top: 0 !important;
+	color: var(--text-muted) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

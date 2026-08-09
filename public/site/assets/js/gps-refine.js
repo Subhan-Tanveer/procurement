@@ -7,25 +7,11 @@
 (function () {
 	'use strict';
 
-	var THEME_KEY = 'gps_theme';
 	var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	var isMobileViewport = window.innerWidth < 768;
 
-	/* ---------- Theme toggle ---------- */
-	function applyTheme(theme) {
-		document.documentElement.setAttribute('data-theme', theme);
-	}
-
-	function initThemeToggle() {
-		var btn = document.querySelector('.gps-theme-toggle');
-		if (!btn) return;
-		btn.addEventListener('click', function () {
-			var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-			var next = current === 'dark' ? 'light' : 'dark';
-			applyTheme(next);
-			try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* storage unavailable */ }
-		});
-	}
+	/* Theme now always mirrors the OS color-scheme setting — see the boot script in
+	   master_layout.blade.php. No manual toggle here anymore. */
 
 	/* ---------- Hero / page-header background video ---------- */
 	function initHeroVideos() {
@@ -278,7 +264,6 @@
 	}
 
 	document.addEventListener('DOMContentLoaded', function () {
-		initThemeToggle();
 		initHeroVideos();
 		initHeroCanvas();
 		initNetworkScene();

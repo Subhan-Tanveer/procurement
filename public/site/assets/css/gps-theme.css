@@ -1,33 +1,31 @@
 /* ----------------------------------------------------------------------------------------
  * GoodProcure — Design Token System
- * Bold dark-industrial system, matching the reference build quality (BW Pro, ATX Fence &
- * Deck, Mando's Assembly, Tandy's, Aracely Moreno): near-black canvas, huge condensed
- * display type, one confident neon accent, sharp (near-0 radius) controls, generous space.
+ * Brand-consistent system built from the actual logo colors (steel blue + green), a softer
+ * humanist display font, dark-first with the theme following the visitor's OS setting.
  * Loaded AFTER custom.css. Overrides the theme's own CSS custom properties so the
  * existing ~12k lines of component CSS re-theme automatically — no component rewrite.
  * Do not hardcode hex values below this file; add new tokens here instead.
  * -------------------------------------------------------------------------------------- */
 
 :root {
-	/* Dark is the site's identity, not an opt-in mode. Light exists only as a toggle escape hatch. */
 	--primary-color: #5FA8E8;   /* brightened steel blue for legible headings on near-black */
 	--secondary-color: #14181D; /* panel / alt-section background */
 	--bg-color: #0A0C0F;
 	--text-color: #EDEFF2;
 	--text-muted: #9AA3AD;
-	--accent-color: #FFB020;    /* neon amber — the one loud color in the system */
-	--accent-color-2: #33C7FF;  /* secondary neon (links/small accents, glow) */
-	--accent-ink: #14100A;      /* text placed ON TOP of the amber accent */
+	--accent-color: #4CAF6E;    /* company green, from the logo */
+	--accent-color-2: #5FA8E8;  /* secondary accent — same family as primary, no neon */
+	--accent-ink: #0B160F;      /* text placed ON TOP of the accent */
 	--white-color: #FFFFFF;
 	--divider-color: #FFFFFF14;
 	--dark-divider-color: #FFFFFF26;
 
-	--display-font: "Bebas Neue", var(--accent-font), sans-serif;
+	--display-font: "Poppins", var(--accent-font), sans-serif;
 
 	--gps-glass-bg: rgba(20, 24, 29, 0.7);
 	--gps-glass-border: rgba(255, 255, 255, 0.1);
-	--gps-glow: rgba(255, 176, 32, 0.35);
-	--gps-node-line: rgba(51, 199, 255, 0.5);
+	--gps-glow: rgba(76, 175, 110, 0.3);
+	--gps-node-line: rgba(95, 168, 232, 0.5);
 	--gps-canvas-opacity: 0.3;
 }
 
@@ -37,16 +35,16 @@
 	--bg-color: #F8F5EE;
 	--text-color: #201C16;
 	--text-muted: #6B6459;
-	--accent-color: #C97F1E;
+	--accent-color: #3C8F5C;
 	--accent-color-2: #1E7FB0;
-	--accent-ink: #14100A;
+	--accent-ink: #0B160F;
 	--white-color: #FFFFFF;
 	--divider-color: #10233A1A;
 	--dark-divider-color: #10233A26;
 
 	--gps-glass-bg: rgba(255, 255, 255, 0.65);
 	--gps-glass-border: rgba(32, 28, 22, 0.1);
-	--gps-glow: rgba(201, 127, 30, 0.25);
+	--gps-glow: rgba(60, 143, 92, 0.25);
 	--gps-node-line: rgba(66, 102, 147, 0.5);
 	--gps-canvas-opacity: 0.14;
 }
@@ -61,7 +59,7 @@ body {
 	transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Buttons sit on the amber accent — force a dark ink so text stays AA-legible.
+/* Buttons sit on the accent — force a dark ink so text stays AA-legible.
    Ghost/outline buttons (transparent bg, e.g. hero "Talk to Us") opt out via .gps-btn-ghost. */
 .btn-default {
 	color: var(--accent-ink) !important;

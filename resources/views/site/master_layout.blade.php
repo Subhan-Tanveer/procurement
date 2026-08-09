@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <script>
         (function () {
-            try {
-                var saved = localStorage.getItem('gps_theme');
-                var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-                document.documentElement.setAttribute('data-theme', theme);
-            } catch (e) {
-                document.documentElement.setAttribute('data-theme', 'dark');
+            // Always mirrors the visitor's OS/browser color-scheme setting — no manual
+            // toggle, no stored override. Updates live if they change it while the tab is open.
+            var mql = window.matchMedia('(prefers-color-scheme: light)');
+            function applyTheme() {
+                document.documentElement.setAttribute('data-theme', mql.matches ? 'light' : 'dark');
             }
+            applyTheme();
+            mql.addEventListener('change', applyTheme);
         })();
     </script>
     @php

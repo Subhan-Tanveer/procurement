@@ -91,17 +91,21 @@ over-saturated rendering, fast/shaky camera motion, crowded chaotic framing.
 
 ## 4. Technology & IT Procurement — `hero-technology-it-procurement.mp4`
 
+**UPDATED per client feedback (Aug 2026): the original data-center/server-room concept was
+misleading — this service is basic office computers and desktops, not enterprise
+infrastructure. Use this prompt instead:**
+
 **Starter image prompt:**
-> Dim server room interior, rows of black server racks with small blinking status LEDs in
-> cyan and white, a technician in silhouette racking a new server unit, cool cyan-blue
-> practical lighting from the equipment and overhead strip lights, cable trays overhead,
-> cold industrial-tech atmosphere, shallow depth of field, light haze in the air for
-> volumetric light rays, cinematic, high contrast, 16:9
+> Clean modern office desk setup, a desktop computer tower beside a monitor displaying a
+> simple dashboard, keyboard and mouse, a stack of new-in-box computer peripherals nearby
+> ready to be unboxed, soft warm daylight from a window mixed with the monitor's cool glow,
+> shallow depth of field, calm and approachable atmosphere — not a server room, not
+> industrial, just an ordinary well-lit office, editorial photography, 16:9
 
 **Video motion prompt:**
-> Slow forward push between the server rack aisles, subtle flicker of status LEDs, the
-> technician makes a small natural motion sliding a server into a rack, cool cyan rim light
-> pulses very gently, no camera shake, 12–15 second loop
+> Slow, gentle push-in toward the desktop setup, monitor screen content shifts subtly,
+> soft natural light shifts as if from passing clouds, calm and unhurried pacing, 10–14
+> second loop
 
 ---
 
@@ -242,11 +246,11 @@ these should look like a still frame pulled from the matching hero video.
 > shallow depth of field, muted navy and amber palette, editorial corporate photography,
 > near-black shadow falloff, 4:3 or 16:9, high detail
 
-**2. Technology & IT — `service-technology-it-procurement.jpg`**
-> Dim server room, black server racks with small cyan and white status LEDs, a technician
-> in three-quarter view racking hardware, cool cyan-blue practical lighting, cable
-> management trays overhead, light haze for volumetric light rays, cold industrial-tech
-> mood, shallow depth of field, cinematic, high contrast
+**2. Technology & IT — `service-technology-it-procurement.jpg`** (updated per client
+feedback — basic office computers, not a data center)
+> Clean modern office desk with a desktop computer tower, monitor, keyboard, and mouse,
+> a small stack of boxed peripherals nearby, soft warm daylight mixed with the monitor's
+> glow, shallow depth of field, calm and ordinary office setting, editorial photography
 
 **3. Construction & Infrastructure — `service-construction-infrastructure-procurement.jpg`**
 > Active construction site at golden hour, exposed steel rebar and structural beams in the
