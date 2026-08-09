@@ -16,7 +16,4 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction \
 
 EXPOSE 10000
 
-CMD php artisan config:clear \
-    && php artisan migrate --force \
-    && php artisan config:cache \
-    && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
+CMD php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
