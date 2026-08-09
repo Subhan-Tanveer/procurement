@@ -72,7 +72,11 @@ return new class extends Migration
         }
 
         Schema::table('supplier_profiles', function (Blueprint $table) {
-            $table->foreignId('user_id')->nullable()->unique()->change();
+            // user_id is already unique from the table's original creation — only the
+            // nullability needs to change here. Redeclaring ->unique() alongside ->change()
+            // makes Laravel re-issue an ADD CONSTRAINT on Postgres, which fails because the
+            // constraint already exists.
+            $table->foreignId('user_id')->nullable()->change();
             $table->string('contact_name')->nullable()->after('slug');
             $table->string('contact_email')->nullable()->after('contact_name');
             $table->string('contact_phone', 30)->nullable()->after('contact_email');
@@ -134,7 +138,7 @@ return new class extends Migration
 
         Schema::table('supplier_profiles', function (Blueprint $table) {
             $table->dropColumn(['contact_name', 'contact_email', 'contact_phone']);
-            $table->foreignId('user_id')->unique()->change();
+            $table->foreignId('user_id')->nullable(false)->change();
         });
     }
 };
