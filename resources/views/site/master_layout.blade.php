@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <script>
         (function () {
-            // Always mirrors the visitor's OS/browser color-scheme setting — no manual
-            // toggle, no stored override. Updates live if they change it while the tab is open.
+            // Defaults to the visitor's OS/browser color-scheme setting and keeps following
+            // it live — unless they've manually toggled it via the header button, in which
+            // case that choice is remembered (localStorage) until they toggle again.
             var mql = window.matchMedia('(prefers-color-scheme: light)');
             function applyTheme() {
-                document.documentElement.setAttribute('data-theme', mql.matches ? 'light' : 'dark');
+                var saved = null;
+                try { saved = localStorage.getItem('gps_theme'); } catch (e) { /* storage unavailable */ }
+                document.documentElement.setAttribute('data-theme', saved || (mql.matches ? 'light' : 'dark'));
             }
             applyTheme();
             mql.addEventListener('change', applyTheme);

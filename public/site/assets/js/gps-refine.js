@@ -10,8 +10,17 @@
 	var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	var isMobileViewport = window.innerWidth < 768;
 
-	/* Theme now always mirrors the OS color-scheme setting — see the boot script in
-	   master_layout.blade.php. No manual toggle here anymore. */
+	/* ---------- Theme toggle ---------- */
+	function initThemeToggle() {
+		var btn = document.querySelector('.gps-theme-toggle');
+		if (!btn) return;
+		btn.addEventListener('click', function () {
+			var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+			var next = current === 'dark' ? 'light' : 'dark';
+			document.documentElement.setAttribute('data-theme', next);
+			try { localStorage.setItem('gps_theme', next); } catch (e) { /* storage unavailable */ }
+		});
+	}
 
 	/* ---------- Hero / page-header background video ---------- */
 	function initHeroVideos() {
@@ -264,6 +273,7 @@
 	}
 
 	document.addEventListener('DOMContentLoaded', function () {
+		initThemeToggle();
 		initHeroVideos();
 		initHeroCanvas();
 		initNetworkScene();
