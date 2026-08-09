@@ -20,7 +20,7 @@
 
 .gps-blog-header .page-header-box h1 {
 	font-family: var(--display-font);
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: uppercase;
 	font-size: clamp(48px, 9vw, 118px);
 	line-height: 0.92;
@@ -93,7 +93,7 @@
 
 .gps-blog-listing-headline {
 	font-family: var(--display-font);
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: uppercase;
 	font-size: clamp(40px, 5.4vw, 76px);
 	line-height: 0.98;
@@ -266,7 +266,7 @@
 
 .gps-post-content .post-entry h2 {
 	font-family: var(--display-font);
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: uppercase;
 	font-size: clamp(28px, 3.4vw, 42px);
 	letter-spacing: 0.005em;
@@ -308,7 +308,7 @@
 
 .gps-post-content .post-entry blockquote p {
 	font-family: var(--display-font);
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: none;
 	font-size: clamp(22px, 2.6vw, 30px);
 	line-height: 1.35;

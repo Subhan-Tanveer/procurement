@@ -130,7 +130,7 @@
 .gps-service-row-body h3 {
 	margin: 0 0 14px;
 	font-family: var(--display-font);
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: uppercase;
 	font-size: clamp(24px, 2.4vw, 34px);
 	line-height: 1.08;
@@ -234,7 +234,7 @@
 	padding: 0;
 	margin: 26px 0 18px;
 	font-family: var(--display-font);
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
 	font-size: 22px;
@@ -338,7 +338,7 @@
 .gps-cta-panel-content h3 {
 	color: var(--text-color) !important;
 	font-family: var(--display-font);
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: uppercase;
 	font-size: 24px;
 	line-height: 1.15;
@@ -414,7 +414,7 @@
 
 .gps-offer-section h2 {
 	font-family: var(--display-font);
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: uppercase;
 	font-size: clamp(28px, 3vw, 40px);
 }
@@ -487,7 +487,7 @@
 
 .gps-why-choose .service-why-choose-content h2 {
 	font-family: var(--display-font);
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: uppercase;
 	font-size: clamp(26px, 2.8vw, 36px);
 }
@@ -511,7 +511,7 @@
    --------------------------------------------------------------------- */
 .gps-related-products .section-title h2 {
 	font-family: var(--display-font);
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: uppercase;
 	font-size: clamp(26px, 2.8vw, 36px);
 }
@@ -525,7 +525,7 @@
 .gps-related-card .card-title {
 	color: var(--text-color);
 	font-family: var(--display-font);
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.02em;
 }
@@ -543,7 +543,7 @@
    --------------------------------------------------------------------- */
 .gps-faq-section .section-title h2 {
 	font-family: var(--display-font);
-	font-weight: 400;
+	font-weight: 700;
 	text-transform: uppercase;
 }
 
