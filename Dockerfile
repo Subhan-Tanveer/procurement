@@ -1,4 +1,4 @@
-FROM php:8.2-cli
+FROM dunglas/frankenphp
 
 RUN apt-get update && apt-get install -y \
         git unzip libzip-dev libpq-dev libonig-dev libxml2-dev \
@@ -19,4 +19,4 @@ EXPOSE 10000
 CMD php artisan config:clear \
     && php artisan migrate --force \
     && php artisan config:cache \
-    && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
+    && frankenphp php-server --listen 0.0.0.0:${PORT:-10000} --root public
