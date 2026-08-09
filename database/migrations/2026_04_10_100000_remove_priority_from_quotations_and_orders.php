@@ -84,13 +84,17 @@ return new class extends Migration
             return;
         }
 
-        Schema::table('quotations', function (Blueprint $table) {
-            $table->dropColumn('priority');
-        });
+        if (Schema::hasColumn('quotations', 'priority')) {
+            Schema::table('quotations', function (Blueprint $table) {
+                $table->dropColumn('priority');
+            });
+        }
 
-        Schema::table('orders', function (Blueprint $table) {
-            $table->dropColumn('priority');
-        });
+        if (Schema::hasColumn('orders', 'priority')) {
+            Schema::table('orders', function (Blueprint $table) {
+                $table->dropColumn('priority');
+            });
+        }
     }
 
     public function down(): void
