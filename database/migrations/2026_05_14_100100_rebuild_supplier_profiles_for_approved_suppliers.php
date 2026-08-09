@@ -82,13 +82,26 @@ return new class extends Migration
             $table->string('contact_phone', 30)->nullable()->after('contact_email');
         });
 
-        DB::table('supplier_profiles')
-            ->leftJoin('users', 'users.id', '=', 'supplier_profiles.user_id')
-            ->update([
-                'supplier_profiles.contact_name' => DB::raw('COALESCE(supplier_profiles.contact_name, users.name)'),
-                'supplier_profiles.contact_email' => DB::raw('COALESCE(supplier_profiles.contact_email, users.email)'),
-                'supplier_profiles.contact_phone' => DB::raw('COALESCE(supplier_profiles.contact_phone, users.phone_number)'),
-            ]);
+        // Laravel's query-builder leftJoin()->update() only produces valid SQL on MySQL —
+        // Postgres doesn't support joined UPDATEs the same way and needs UPDATE ... FROM.
+        if ($driver === 'pgsql') {
+            DB::statement('
+                UPDATE supplier_profiles
+                SET contact_name = COALESCE(supplier_profiles.contact_name, users.name),
+                    contact_email = COALESCE(supplier_profiles.contact_email, users.email),
+                    contact_phone = COALESCE(supplier_profiles.contact_phone, users.phone_number)
+                FROM users
+                WHERE users.id = supplier_profiles.user_id
+            ');
+        } else {
+            DB::table('supplier_profiles')
+                ->leftJoin('users', 'users.id', '=', 'supplier_profiles.user_id')
+                ->update([
+                    'supplier_profiles.contact_name' => DB::raw('COALESCE(supplier_profiles.contact_name, users.name)'),
+                    'supplier_profiles.contact_email' => DB::raw('COALESCE(supplier_profiles.contact_email, users.email)'),
+                    'supplier_profiles.contact_phone' => DB::raw('COALESCE(supplier_profiles.contact_phone, users.phone_number)'),
+                ]);
+        }
     }
 
     public function down(): void
