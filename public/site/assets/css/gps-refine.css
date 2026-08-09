@@ -711,11 +711,11 @@ body,
 }
 
 .main-header.header-elite .navbar {
-	padding: 12px 0;
+	padding: 10px 0;
 }
 
 .brand-logo-elite img {
-	max-height: 46px;
+	max-height: 54px;
 }
 
 .main-menu ul li a {
@@ -757,8 +757,15 @@ body,
 }
 
 .header-btn .btn-default {
-	padding: 11px 22px !important;
+	padding: 11px 20px !important;
 	font-size: 13px;
+}
+
+/* The arrow icon (.btn-default::before) is absolutely positioned and needs the
+   template's default ~58px right padding to clear the text — this compact header
+   button doesn't have room for it, so drop the icon here instead of colliding. */
+.header-btn .btn-default::before {
+	display: none;
 }
 
 .header-contact-item-content h3,
@@ -779,4 +786,12 @@ body,
 	.header-contact-item {
 		display: none;
 	}
+}
+
+/* Preloader — the large rotated corner watermark shields made the centered spinner icon
+   read as "tilted off to the side" rather than a clean centered mark. Drop them; the
+   actual spinner icon (#loading-icon) is already correctly centered via translate(-50%,-50%). */
+.preloader::before,
+.preloader::after {
+	display: none;
 }
