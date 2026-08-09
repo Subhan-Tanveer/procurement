@@ -1,0 +1,56 @@
+databases:
+  - name: goodprocure-db
+    plan: free
+    databaseName: goodprocure
+    user: goodprocure
+
+services:
+  - type: web
+    name: goodprocure-web
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: APP_NAME
+        value: "Good Procurement Service Ltd"
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_TIMEZONE
+        value: UTC
+      - key: LOG_CHANNEL
+        value: stack
+      - key: LOG_LEVEL
+        value: error
+      - key: SESSION_DRIVER
+        value: cookie
+      - key: CACHE_STORE
+        value: file
+      - key: QUEUE_CONNECTION
+        value: sync
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: goodprocure-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: goodprocure-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: goodprocure-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: goodprocure-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: goodprocure-db
+          property: password
