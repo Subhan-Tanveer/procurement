@@ -262,13 +262,30 @@
                     </div>
                 </div>
 
-                <!-- Matters Visual Start -->
+                <!-- 3D Supply-Chain Network Scene Start -->
                 <div class="gps-matters-visual wow fadeInUp" data-wow-delay="0.3s">
-                    <figure style="margin:0; height:100%; border-radius:20px; overflow:hidden;">
-                        <img src="{{ asset('site/assets/images/hero-image-1-elite.jpg') }}" alt="Good Procurement team checking inventory" style="width:100%; height:100%; min-height:360px; object-fit:cover; display:block;" loading="lazy" decoding="async">
-                    </figure>
+                    <div class="gps-network-scene" role="img" aria-label="Animated diagram showing Sourcing, Vendor Management, Quality Assurance, and Supply Chain as connected stages of procurement">
+                        <div class="gps-network-fallback">
+                            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
+                                <line class="gps-node-line" x1="80" y1="60" x2="320" y2="60"></line>
+                                <line class="gps-node-line" x1="80" y1="60" x2="80" y2="240"></line>
+                                <line class="gps-node-line" x1="320" y1="60" x2="320" y2="240"></line>
+                                <line class="gps-node-line" x1="80" y1="240" x2="320" y2="240"></line>
+                                <line class="gps-node-line" x1="80" y1="60" x2="320" y2="240"></line>
+                                <line class="gps-node-line" x1="320" y1="60" x2="80" y2="240"></line>
+                                <circle class="gps-node-dot" cx="80" cy="60" r="7"></circle>
+                                <circle class="gps-node-dot" cx="320" cy="60" r="7"></circle>
+                                <circle class="gps-node-dot" cx="80" cy="240" r="7"></circle>
+                                <circle class="gps-node-dot" cx="320" cy="240" r="7"></circle>
+                                <text class="gps-node-label" x="80" y="40" text-anchor="middle">Sourcing</text>
+                                <text class="gps-node-label" x="320" y="40" text-anchor="middle">Vendor Mgmt</text>
+                                <text class="gps-node-label" x="80" y="270" text-anchor="middle">Quality Assurance</text>
+                                <text class="gps-node-label" x="320" y="270" text-anchor="middle">Supply Chain</text>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
-                <!-- Matters Visual End -->
+                <!-- 3D Supply-Chain Network Scene End -->
             </div>
         </div>
     </div>
