@@ -14,7 +14,16 @@
                             <ul class="navbar-nav mr-auto" id="menu">
                                 <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ url('/') }}#about">About Us</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ url('/') }}#services">Services</a></li>
+                                <li class="nav-item submenu"><a class="nav-link" href="{{ url('/') }}#services">Services</a>
+                                    <ul>
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('services.show', 'office-admin-corporate-procurement') }}">Office, Admin &amp; Corporate</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('services.show', 'technology-it-procurement') }}">Technology &amp; IT</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('services.show', 'construction-infrastructure-procurement') }}">Construction &amp; Infrastructure</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('services.show', 'oil-gas-procurement') }}">Oil &amp; Gas</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('services.show', 'maritime-supply') }}">Maritime Supply</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('services.show', 'site-camp-welfare-supplies') }}">Site &amp; Camp Welfare</a></li>
+                                    </ul>
+                                </li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Products</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ url('/blog') }}">Blog</a></li>
                                 <!-- PAGES SUBMENU - COMMENTED OUT (Pages not yet implemented)

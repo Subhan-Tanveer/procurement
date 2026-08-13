@@ -210,7 +210,7 @@
         <div class="container">
             <div class="gps-trust-strip-inner">
                 <div>
-                    <h3>Growing company. Full attention.</h3>
+                    <h3>The legwork is ours. The results are yours.</h3>
                     <p>Every client gets the kind of direct, hands-on service that gets diluted once a company scales. You're not a small account to us.</p>
                 </div>
                 <div class="gps-trust-tags">
@@ -429,61 +429,33 @@
     <div class="gps-section" id="how">
         <div class="container">
             <div class="gps-kicker wow fadeInUp">How It Works</div>
-            <h2 class="gps-headline text-anime-style-3" data-cursor="-opaque">Three steps, no surprises.</h2>
+            <h2 class="gps-headline text-anime-style-3" data-cursor="-opaque">Simple process, real progress.</h2>
 
             <div class="gps-process-grid">
                 <div class="gps-process-step wow fadeInUp">
                     <div class="gps-process-num">01</div>
-                    <h4>Just Tell Us What You Need</h4>
-                    <p>Send us what you need via WhatsApp, email, or the form below. No sales pitch, no pressure.</p>
+                    <h4>Tell Us What You Need</h4>
+                    <p>Send us what you need via WhatsApp, email, or the form below, along with specifications, quantity, delivery location, timing, and any quality concerns that matter to the job. No sales pitch, no pressure.</p>
                 </div>
                 <div class="gps-process-step wow fadeInUp" data-wow-delay="0.1s">
                     <div class="gps-process-num">02</div>
-                    <h4>We Handle the Back-and-Forth</h4>
-                    <p>A clear quotation, with pricing and delivery cost laid out, and the order confirmed once you approve.</p>
+                    <h4>We Source Carefully</h4>
+                    <p>We compare credible options and screen suppliers properly, avoiding the shortcuts that usually lead to fake goods, poor fit, or wasted spend.</p>
                 </div>
                 <div class="gps-process-step wow fadeInUp" data-wow-delay="0.2s">
                     <div class="gps-process-num">03</div>
-                    <h4>We Coordinate Delivery</h4>
-                    <p>We coordinate delivery through our logistics network, trusted delivery partners, or other suitable arrangements based on your location and requirements. Delivery timelines depend on the product, availability, location, and nature of the order.</p>
+                    <h4>You Get a Clear Quotation</h4>
+                    <p>Pricing, delivery expectations, and the practical details you need, laid out clearly before you commit to anything.</p>
+                </div>
+                <div class="gps-process-step wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="gps-process-num">04</div>
+                    <h4>We Follow Through</h4>
+                    <p>We coordinate delivery through our logistics network or trusted partners, confirm arrival, and stay available if anything needs resolving afterward. Timelines depend on the product, availability, and nature of the order.</p>
                 </div>
             </div>
         </div>
     </div>
     <!-- How It Works Section End -->
-
-    <!-- Our Approach Section Start -->
-    <div class="gps-section gps-section--tight bg-section">
-        <div class="container">
-            <div class="gps-kicker wow fadeInUp">Our Approach</div>
-            <h2 class="gps-headline text-anime-style-3" data-cursor="-opaque">How we make procurement feel straightforward.</h2>
-            <p class="gps-lede wow fadeInUp" data-wow-delay="0.2s">No mystery, no padded promises, no endless chasing. We keep the process simple, visible, and practical from first request to final delivery.</p>
-
-            <div class="gps-process-grid">
-                <div class="gps-process-step wow fadeInUp">
-                    <div class="gps-process-num">01</div>
-                    <h4>Understand the Need</h4>
-                    <p>We start with what you actually need: specifications, quantity, delivery location, timing, and any quality concerns that matter to the job.</p>
-                </div>
-                <div class="gps-process-step wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="gps-process-num">02</div>
-                    <h4>Source Carefully</h4>
-                    <p>We compare credible options, screen suppliers properly, and avoid the shortcuts that usually lead to fake goods, poor fit, or wasted spend.</p>
-                </div>
-                <div class="gps-process-step wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="gps-process-num">03</div>
-                    <h4>Confirm Clearly</h4>
-                    <p>You get a clear quotation with pricing, delivery expectations, and the practical details you need before you commit to anything.</p>
-                </div>
-                <div class="gps-process-step wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="gps-process-num">04</div>
-                    <h4>Follow Through</h4>
-                    <p>We stay on the order until it lands properly, confirm arrival, and remain available if something needs to be resolved after delivery.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Our Approach Section End -->
 
     <!-- What To Expect Section Start -->
     <div class="gps-section gps-section--tight">
