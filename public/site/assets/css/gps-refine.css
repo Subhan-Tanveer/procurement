@@ -436,7 +436,6 @@
 .section-title h2 {
 	font-family: var(--display-font);
 	font-weight: 700;
-	text-transform: uppercase;
 	letter-spacing: 0.005em;
 }
 
@@ -454,7 +453,7 @@
 .founder-quote-body p,
 .hero-tagline-elite {
 	font-family: var(--display-font);
-	text-transform: uppercase;
+	text-transform: none;
 }
 
 .hero-tagline-elite {
@@ -466,7 +465,7 @@
 /* ---------- Sharp, confident buttons (no soft pill radius) ---------- */
 .btn-default {
 	border-radius: 3px !important;
-	text-transform: uppercase;
+	text-transform: none;
 	letter-spacing: 0.06em;
 	font-weight: 800 !important;
 	box-shadow: 0 0 0 0 var(--gps-glow);

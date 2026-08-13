@@ -34,7 +34,6 @@
 
 .gps-headline {
 	font-family: var(--display-font);
-	text-transform: uppercase;
 	font-weight: 700;
 	line-height: 1.05;
 	letter-spacing: 0;
@@ -67,7 +66,6 @@
 
 .gps-trust-strip-inner h3 {
 	font-family: var(--display-font);
-	text-transform: uppercase;
 	font-size: 28px;
 	color: var(--text-color);
 	margin: 0 0 6px;
@@ -307,7 +305,6 @@
 
 .gps-service-copy h3 {
 	font-family: var(--display-font);
-	text-transform: uppercase;
 	font-size: clamp(22px, 2.6vw, 32px);
 	color: var(--text-color);
 	margin: 0 0 8px;

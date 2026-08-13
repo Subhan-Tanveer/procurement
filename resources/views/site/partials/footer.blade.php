@@ -34,6 +34,8 @@
                         <li><a href="{{ route('services.show', 'technology-it-procurement') }}">Technology &amp; IT</a></li>
                         <li><a href="{{ route('services.show', 'construction-infrastructure-procurement') }}">Construction &amp; Infrastructure</a></li>
                         <li><a href="{{ route('services.show', 'oil-gas-procurement') }}">Oil &amp; Gas</a></li>
+                        <li><a href="{{ route('services.show', 'maritime-supply') }}">Maritime Supply</a></li>
+                        <li><a href="{{ route('services.show', 'site-camp-welfare-supplies') }}">Site &amp; Camp Welfare</a></li>
                     </ul>
                 </div>
                 <!-- Footer Services End -->
