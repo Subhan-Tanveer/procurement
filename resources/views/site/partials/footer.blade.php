@@ -21,7 +21,7 @@
                         <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="{{ url('/') }}#about">About Us</a></li>
                         <li><a href="{{ url('/') }}#services">Services</a></li>
-                        <li><a href="{{ url('/blog') }}">Latest News</a></li>
+                        <li><a href="{{ url('/') }}#contact">Contact Us</a></li>
                     </ul>
                 </div>
                 <!-- Footer Links End -->
@@ -36,6 +36,7 @@
                         <li><a href="{{ route('services.show', 'oil-gas-procurement') }}">Oil &amp; Gas</a></li>
                         <li><a href="{{ route('services.show', 'maritime-supply') }}">Maritime Supply</a></li>
                         <li><a href="{{ route('services.show', 'site-camp-welfare-supplies') }}">Site &amp; Camp Welfare</a></li>
+                        <li><a href="{{ url('/') }}#services">Logistics &amp; Fleet Support</a></li>
                     </ul>
                 </div>
                 <!-- Footer Services End -->

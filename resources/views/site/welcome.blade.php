@@ -471,44 +471,6 @@
     </div>
     <!-- What To Expect Section End -->
 
-    <!-- Why Us Section Start -->
-    <div class="gps-section">
-        <div class="container">
-            <div class="gps-why-grid">
-                <div>
-                    <span class="gps-panel-badge" style="background:transparent; border:1px solid var(--accent-color); color: var(--accent-color); padding: 8px 16px;">Why Us</span>
-                    <h2 class="gps-headline text-anime-style-3" data-cursor="-opaque" style="margin-top: 22px;">Built for clients who want it done properly, not noisily.</h2>
-                    <p class="gps-lede wow fadeInUp" data-wow-delay="0.2s">We are not trying to sound bigger than we are. The value is simpler than that: direct communication, careful sourcing, and a team that treats each order like its reputation depends on it, because it does.</p>
-                </div>
-
-                <div>
-                    <div class="gps-why-figure wow fadeInUp" data-wow-delay="0.1s">
-                        <img src="{{ asset('site/assets/images/board.jpg') }}" alt="Good Procurement team coordinating sourcing and delivery" loading="lazy" decoding="async">
-                    </div>
-                    <div class="gps-why-list">
-                        <div class="gps-why-item wow fadeInUp">
-                            <h4>Direct Communication</h4>
-                            <p>You speak with the people handling the work. That reduces confusion, speeds up decisions, and keeps accountability clear.</p>
-                        </div>
-                        <div class="gps-why-item wow fadeInUp" data-wow-delay="0.1s">
-                            <h4>Care Before Convenience</h4>
-                            <p>We would rather source the right item honestly than push the nearest substitute just to close the request quickly.</p>
-                        </div>
-                        <div class="gps-why-item wow fadeInUp" data-wow-delay="0.2s">
-                            <h4>Clear Quotations</h4>
-                            <p>Pricing, delivery cost, and timing are laid out clearly so you can make a decision without guesswork or backdoor surprises.</p>
-                        </div>
-                        <div class="gps-why-item wow fadeInUp" data-wow-delay="0.3s">
-                            <h4>Growing With Discipline</h4>
-                            <p>We are building steadily, which means the process still gets attention. You are not being passed through layers just to place an order.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Why Us Section End -->
-
     <!-- Where We Work Section Start -->
     <div class="gps-section gps-section--tight bg-section">
         @include('blocks.map_location_cards', ['content' => [

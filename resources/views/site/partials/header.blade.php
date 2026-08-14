@@ -1,4 +1,4 @@
-	<header class="main-header header-elite">
+	<header class="main-header header-elite active-sticky-header">
 		<div class="header-sticky bg-section">
 			<nav class="navbar navbar-expand-lg">
 				<div class="container-fluid">

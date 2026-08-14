@@ -13,7 +13,7 @@
 	--bg-color: #0A0C0F;
 	--text-color: #EDEFF2;
 	--text-muted: #9AA3AD;
-	--accent-color: #4CAF6E;    /* company green, from the logo */
+	--accent-color: #6BAA47;    /* sampled directly from the gps logo mark's green */
 	--accent-color-2: #5FA8E8;  /* secondary accent — same family as primary, no neon */
 	--accent-ink: #0B160F;      /* text placed ON TOP of the accent */
 	--white-color: #FFFFFF;
@@ -24,7 +24,7 @@
 
 	--gps-glass-bg: rgba(20, 24, 29, 0.7);
 	--gps-glass-border: rgba(255, 255, 255, 0.1);
-	--gps-glow: rgba(76, 175, 110, 0.3);
+	--gps-glow: rgba(107, 170, 71, 0.3);
 	--gps-node-line: rgba(95, 168, 232, 0.5);
 	--gps-canvas-opacity: 0.3;
 }
@@ -35,7 +35,7 @@
 	--bg-color: #F8F5EE;
 	--text-color: #201C16;
 	--text-muted: #6B6459;
-	--accent-color: #3C8F5C;
+	--accent-color: #538537;
 	--accent-color-2: #1E7FB0;
 	--accent-ink: #0B160F;
 	--white-color: #FFFFFF;
@@ -44,7 +44,7 @@
 
 	--gps-glass-bg: rgba(255, 255, 255, 0.65);
 	--gps-glass-border: rgba(32, 28, 22, 0.1);
-	--gps-glow: rgba(60, 143, 92, 0.25);
+	--gps-glow: rgba(83, 133, 55, 0.25);
 	--gps-node-line: rgba(66, 102, 147, 0.5);
 	--gps-canvas-opacity: 0.14;
 }
