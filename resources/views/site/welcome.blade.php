@@ -8,6 +8,7 @@
 <style>
     .gps-hero-title {
         font-weight: 500;
+        color: var(--white-color);
     }
     .gps-hero-service-board {
         position: absolute;
@@ -156,9 +157,8 @@
                         <div class="hero-content-header-elite">
                             <!-- Section Title Start -->
                             <div class="section-title">
-                                <h3 class="wow fadeInUp">Welcome to Good Procurement Service Ltd</h3>
+                                <div class="gps-kicker wow fadeInUp">Done Right.</div>
                                 <h1 class="text-anime-style-3 gps-hero-title" data-cursor="-opaque">Your project doesn't stop for uncertain suppliers.</h1>
-                                <p class="hero-tagline-elite wow fadeInUp" data-wow-delay="0.1s">Done Right.</p>
                                 <p class="wow fadeInUp" data-wow-delay="0.2s">Late deliveries. Vague quotes. Materials that don't pass inspection. When sourcing goes wrong, it's your project that stalls, not the vendor's. Good Procurement handles the sourcing, the vetting, and the follow-through, so your site, your team, and your timeline keep moving.</p>
                                 <p class="wow fadeInUp" data-wow-delay="0.3s" style="color: var(--accent-color); font-weight: 600;">A stalled project doesn't just cost time. It costs budget, and it costs your name with the people you answer to.</p>
                             </div>
