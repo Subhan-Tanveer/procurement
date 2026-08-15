@@ -34,13 +34,6 @@ class ServiceController extends Controller
             ->orderBy('sort_order')
             ->get();
 
-        // Get related products for this service
-        $relatedProducts = $service->products()
-            ->where('is_active', true)
-            ->with('productPage')
-            ->limit(4)
-            ->get();
-
-        return view('site.service_single', compact('service', 'allServices', 'relatedProducts'));
+        return view('site.service_single', compact('service', 'allServices'));
     }
 }

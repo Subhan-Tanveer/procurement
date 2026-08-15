@@ -209,35 +209,6 @@
                         </div>
                         <!-- Service Entry End -->
 
-                        @if($relatedProducts->count() > 0)
-                        <!-- Related Products Start -->
-                        <div class="related-products gps-related-products mt-5">
-                            <div class="section-title">
-                                <h2 class="text-anime-style-3" data-cursor="-opaque">Related Products</h2>
-                            </div>
-                            <div class="row">
-                                @foreach($relatedProducts as $product)
-                                <div class="col-md-6 mb-4">
-                                    <div class="card gps-related-card h-100 border-0 shadow-sm">
-                                        @if($product->featured_image)
-                                        <img src="{{ asset($product->featured_image) }}" class="card-img-top" alt="{{ $product->name }}">
-                                        @endif
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ $product->name }}</h5>
-                                            <p class="card-text text-muted">{{ Str::limit($product->short_description, 80) }}</p>
-                                            @if($product->price > 0)
-                                                <p class="fw-bold text-primary">{{ $product->currency ?? '$' }}{{ number_format($product->price, 2) }}</p>
-                                            @endif
-                                            <a href="{{ route('products.show', $product->productPage->slug ?? $product->slug) }}" class="btn-default">View Product</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        <!-- Related Products End -->
-                        @endif
-
                         <!-- Page Single FAQs Start -->
                         <div class="page-single-faqs gps-faq-section">
                             <!-- Section Title Start -->

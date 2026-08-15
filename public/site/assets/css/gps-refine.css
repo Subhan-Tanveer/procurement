@@ -343,6 +343,49 @@
 	color: var(--accent-color) !important;
 }
 
+/* ---------- Coming-soon placeholder (Products) ---------- */
+.gps-coming-soon {
+	padding: 140px 0;
+}
+
+.gps-coming-soon-panel {
+	max-width: 620px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 56px 40px;
+	border-radius: 20px;
+	background: var(--gps-glass-bg);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	border: 1px solid var(--gps-glass-border);
+	box-shadow: 0 32px 64px -32px rgba(0, 0, 0, 0.45);
+}
+
+.gps-coming-soon-panel .gps-headline {
+	margin-top: 14px;
+}
+
+.gps-coming-soon-panel .gps-lede {
+	margin: 18px auto 0;
+}
+
+.gps-coming-soon-divider {
+	width: 64px;
+	height: 2px;
+	margin: 32px auto;
+	background: var(--accent-color);
+	border-radius: 2px;
+}
+
+@media (max-width: 575px) {
+	.gps-coming-soon {
+		padding: 90px 0;
+	}
+	.gps-coming-soon-panel {
+		padding: 40px 24px;
+	}
+}
+
 /* ---------- Scroll-drawn process line ---------- */
 .gps-process-line-wrap {
 	position: relative;

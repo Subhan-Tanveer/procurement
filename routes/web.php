@@ -6,7 +6,6 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\QuotationController;
 use App\Http\Controllers\OrderTrackingController;
 use App\Models\Service;
-use App\Models\ProductPage;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
@@ -48,9 +47,9 @@ Route::get('/sitemap.xml', function () {
         $sitemap->add(Url::create(route('services.show', $service->slug))->setPriority(0.7));
     });
 
-    ProductPage::where('is_published', true)->get()->each(function ($page) use ($sitemap) {
-        $sitemap->add(Url::create(route('products.show', $page->slug))->setPriority(0.6));
-    });
+    // Individual product pages are a "coming soon" placeholder for now (see
+    // ProductController), so they're left out of the sitemap to avoid indexing
+    // many URLs with identical content.
 
     return $sitemap->toResponse(request());
 })->name('sitemap');
