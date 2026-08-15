@@ -888,3 +888,58 @@ body,
 .preloader::after {
 	display: none;
 }
+
+/* ---------- Stakes note — a small callout meant to actually get noticed ---------- */
+.gps-stakes-note {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 12px;
+	padding: 6px 12px 6px 10px;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--accent-color) 14%, transparent);
+	border: 1px solid color-mix(in srgb, var(--accent-color) 35%, transparent);
+	color: var(--accent-color);
+	font-weight: 600;
+	font-size: 13.5px;
+	line-height: 1.4;
+	animation: gps-stakes-pulse 2.2s ease-in-out infinite;
+}
+
+.gps-stakes-dot {
+	flex-shrink: 0;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--accent-color);
+	box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color) 60%, transparent);
+	animation: gps-stakes-dot-ping 2.2s ease-out infinite;
+}
+
+@keyframes gps-stakes-pulse {
+	0%, 100% {
+		box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color) 0%, transparent);
+	}
+	50% {
+		box-shadow: 0 0 16px 1px color-mix(in srgb, var(--accent-color) 25%, transparent);
+	}
+}
+
+@keyframes gps-stakes-dot-ping {
+	0% {
+		box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color) 55%, transparent);
+	}
+	70% {
+		box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent-color) 0%, transparent);
+	}
+	100% {
+		box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color) 0%, transparent);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.gps-stakes-note,
+	.gps-stakes-dot {
+		animation: none;
+	}
+}

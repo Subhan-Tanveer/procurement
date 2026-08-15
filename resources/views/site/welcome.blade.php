@@ -448,7 +448,7 @@
                     <div class="gps-process-num">02</div>
                     <h4>We Source Carefully</h4>
                     <p>We compare credible options and screen suppliers properly, avoiding the shortcuts that usually lead to fake goods, poor fit, or wasted spend.</p>
-                    <p style="color: var(--accent-color); font-weight: 600; margin-top: 10px; font-size: 14px;">This is where fakes and shortcuts usually slip through. We don't let them.</p>
+                    <p class="gps-stakes-note"><span class="gps-stakes-dot" aria-hidden="true"></span>This is where fakes and shortcuts usually slip through. We don't let them.</p>
                 </div>
                 <div class="gps-process-step wow fadeInUp" data-wow-delay="0.2s">
                     <div class="gps-process-num">03</div>
