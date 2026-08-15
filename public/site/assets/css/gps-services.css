@@ -21,7 +21,7 @@
    where the page-header text overlay covers it. Shift the visible crop up
    so the word clears the text instead of sitting behind it. */
 .gps-services-header--technology-it-procurement .gps-hero-video {
-	object-position: center 20%;
+	object-position: center 100%;
 }
 
 .gps-eyebrow {
