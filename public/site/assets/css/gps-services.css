@@ -515,6 +515,10 @@
 
 .gps-why-choose .service-why-choose-image img {
 	border-radius: 2px;
+	/* Source photo is a tall portrait shot with the truck near the bottom of
+	   frame; the base theme's wide banner crop centers vertically by default,
+	   which shows mostly empty sky. Bias the crop down to keep the truck. */
+	object-position: center 78%;
 }
 
 /* service-why-choose-light no longer forces a hardcoded white background;
