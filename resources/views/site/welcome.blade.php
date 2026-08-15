@@ -157,10 +157,10 @@
                             <!-- Section Title Start -->
                             <div class="section-title">
                                 <h3 class="wow fadeInUp">Welcome to Good Procurement Service Ltd</h3>
-                                <h1 class="text-anime-style-3 gps-hero-title" data-cursor="-opaque">Procurement You Can Actually Rely On.</h1>
+                                <h1 class="text-anime-style-3 gps-hero-title" data-cursor="-opaque">Your project doesn't stop for uncertain suppliers.</h1>
                                 <p class="hero-tagline-elite wow fadeInUp" data-wow-delay="0.1s">Done Right.</p>
-                                <p class="wow fadeInUp" data-wow-delay="0.2s">We're a professional procurement and supply company helping businesses across Nigeria access quality materials, equipment, and supplies reliably, efficiently, and cost-effectively across Oil &amp; Gas, Construction, Corporate Services, and Maritime. We're growing into Healthcare and Hospitality too.</p>
-                                <p class="wow fadeInUp" data-wow-delay="0.3s"> We are a growing company, and that means you get our full attention. Not just call centers, not just account managers but a dedicated team that listens, understands your needs, and follows through.</p>
+                                <p class="wow fadeInUp" data-wow-delay="0.2s">Late deliveries. Vague quotes. Materials that don't pass inspection. When sourcing goes wrong, it's your project that stalls, not the vendor's. Good Procurement handles the sourcing, the vetting, and the follow-through, so your site, your team, and your timeline keep moving.</p>
+                                <p class="wow fadeInUp" data-wow-delay="0.3s" style="color: var(--accent-color); font-weight: 600;">A stalled project doesn't just cost time. It costs budget, and it costs your name with the people you answer to.</p>
                             </div>
                             <!-- Section Title End -->
 
@@ -210,6 +210,7 @@
         <div class="container">
             <div class="gps-trust-strip-inner">
                 <div>
+                    <div class="gps-kicker wow fadeInUp" style="color: var(--accent-color);">Full Attention, Every Order</div>
                     <h3>The legwork is ours. The results are yours.</h3>
                     <p>Every client gets the kind of direct, hands-on service that gets diluted once a company scales. You're not a small account to us.</p>
                 </div>
@@ -327,6 +328,11 @@
                         <h4>Growing steadily, doing it right.</h4>
                         <p>We're a growing company, and we'd rather show that plainly than borrow a track record that isn't ours. What you get: careful sourcing, honest timelines, and a team building its reputation with every order, starting with yours.</p>
                     </div>
+
+                    <div class="gps-callout wow fadeInUp" data-wow-delay="0.6s" style="border-left: 3px solid var(--accent-color);">
+                        <div class="gps-kicker" style="margin-bottom: 8px;">Why We're Here</div>
+                        <p>We started because people were paying real money for fake goods without knowing it. That problem doesn't end at any border, so neither do we.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -338,9 +344,9 @@
         <div class="container">
             <div class="gps-quote wow fadeInUp">
                 <div class="gps-quote-mark" aria-hidden="true">&ldquo;</div>
-                <p>I started Good Procurement Service Ltd because I saw how limited we were by where we could shop. You want something specific, but if you can't get it, you end up settling for something you don't really like or nothing at all. And deep down, you're never truly happy with it.</p>
-                <p>That's when I realized the real problem: a supply chain gap. People and businesses were paying exorbitant prices for fake, ingenuine goods when they could have gotten the real thing for less  often without even knowing they'd been sold a fake.</p>
-                <p>I realized there are people who don't want to worry about it  and that there are people like me who are willing to go through thick and thin to get them the real deal. This company exists for that sole reason.</p>
+                <p>You want something specific, but if you can't get it, you end up settling for something you don't really like, or nothing at all. Deep down, you're never truly happy with it.</p>
+                <p>I saw this happen again and again: people and businesses paying exorbitant prices for fake, ingenuine goods when they could have gotten the real thing for less, often without even knowing they'd been sold a fake. That's the real problem, a supply chain gap.</p>
+                <p>I realized there are people who don't want to worry about this, and people like me who are willing to go through thick and thin to make sure they get the real deal. This company exists for that sole reason.</p>
                 <div class="gps-quote-sign">Joseph Ogumba, Founder, Good Procurement Service Ltd</div>
             </div>
         </div>
@@ -352,7 +358,7 @@
         <div class="container">
             <div class="gps-kicker wow fadeInUp">Our Services</div>
             <h2 class="gps-headline text-anime-style-3" data-cursor="-opaque">Procurement built around your industry</h2>
-            <p class="gps-lede wow fadeInUp" data-wow-delay="0.2s">Six categories, chosen for what we can execute reliably today.</p>
+            <p class="gps-lede wow fadeInUp" data-wow-delay="0.2s">Six categories, chosen for what we can execute reliably today. Every one of them carries its own version of the same risk: the wrong supplier, the fake part, the missed deadline. We vet for it across all six.</p>
 
             @php
                 $serviceCards = [
@@ -419,7 +425,7 @@
             </div>
 
             <!-- Section Footer Text Start -->
-            <p class="gps-section-footer-note wow fadeInUp" data-wow-delay="0.4s">These are real, deliverable services today, and we're building deeper capability in Oil &amp; Gas and Maritime as we grow. On the roadmap: Healthcare and Hospitality procurement. <a href="{{ url('/') }}#contact">Get Free Quote</a></p>
+            <p class="gps-section-footer-note wow fadeInUp" data-wow-delay="0.4s">These are real, deliverable services today, and we're building deeper capability in Oil &amp; Gas and Maritime as we grow. Next on the roadmap: Healthcare and Hospitality procurement. <a href="{{ url('/') }}#contact">Get Free Quote</a></p>
             <!-- Section Footer Text End -->
         </div>
     </div>
@@ -430,6 +436,7 @@
         <div class="container">
             <div class="gps-kicker wow fadeInUp">How It Works</div>
             <h2 class="gps-headline text-anime-style-3" data-cursor="-opaque">Simple process, real progress.</h2>
+            <p class="gps-lede wow fadeInUp" data-wow-delay="0.2s">Here's how we take the sourcing off your plate.</p>
 
             <div class="gps-process-grid">
                 <div class="gps-process-step wow fadeInUp">
@@ -441,6 +448,7 @@
                     <div class="gps-process-num">02</div>
                     <h4>We Source Carefully</h4>
                     <p>We compare credible options and screen suppliers properly, avoiding the shortcuts that usually lead to fake goods, poor fit, or wasted spend.</p>
+                    <p style="color: var(--accent-color); font-weight: 600; margin-top: 10px; font-size: 14px;">This is where fakes and shortcuts usually slip through. We don't let them.</p>
                 </div>
                 <div class="gps-process-step wow fadeInUp" data-wow-delay="0.2s">
                     <div class="gps-process-num">03</div>
@@ -456,6 +464,16 @@
         </div>
     </div>
     <!-- How It Works Section End -->
+
+    <!-- Outcome Section Start -->
+    <div class="gps-section gps-section--tight bg-section">
+        <div class="container" style="text-align: center; max-width: 760px;">
+            <div class="gps-kicker wow fadeInUp" style="justify-content: center; display: flex;">What Changes</div>
+            <h2 class="gps-headline text-anime-style-3" data-cursor="-opaque">This is what it looks like when sourcing isn't your problem anymore.</h2>
+            <p class="gps-lede wow fadeInUp" data-wow-delay="0.2s" style="margin: 0 auto;">Your project keeps moving. Your budget doesn't bleed on rework or emergency sourcing. You spend your time running the job, not chasing vendors, not double-checking whether what showed up is actually what you asked for. That's the outcome we're building toward with every order, starting with yours.</p>
+        </div>
+    </div>
+    <!-- Outcome Section End -->
 
     <!-- What To Expect Section Start -->
     <div class="gps-section gps-section--tight">
@@ -586,7 +604,7 @@
         <div class="container">
             <div class="gps-kicker wow fadeInUp" style="justify-content:center; display:flex;">Ready to Talk?</div>
             <h2 class="gps-headline text-anime-style-3" data-cursor="-opaque" style="text-align:center;">Get a straightforward quote.</h2>
-            <p class="gps-lede wow fadeInUp" data-wow-delay="0.2s" style="margin: 0 auto; text-align:center;">Tell us what you need sourced or managed, and we'll get back to you with a clear answer. Not a sales pitch.</p>
+            <p class="gps-lede wow fadeInUp" data-wow-delay="0.2s" style="margin: 0 auto; text-align:center;">Tell us what you need sourced or managed, and we'll get back to you with a clear answer. Not a sales pitch, and not the last time you'll hear from us before it's delivered.</p>
 
             <div class="gps-contact-panel wow fadeInUp" style="margin-top: 64px;">
                 <h2 data-cursor="-opaque">Fill in your details</h2>

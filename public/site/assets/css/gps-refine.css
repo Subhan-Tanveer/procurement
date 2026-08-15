@@ -437,6 +437,7 @@
 	font-family: var(--display-font);
 	font-weight: 700;
 	letter-spacing: 0.005em;
+	text-transform: none;
 }
 
 .hero-content-header-elite .section-title h1 {

@@ -13,6 +13,10 @@
 	max-width: 900px;
 }
 
+.gps-services-header .page-header-box h1 {
+	text-transform: none;
+}
+
 .gps-eyebrow {
 	display: inline-flex;
 	align-items: center;

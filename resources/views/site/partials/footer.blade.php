@@ -6,6 +6,7 @@
                     <a href="{{ url('/') }}" class="gps-footer-logo">
                         <img src="{{ asset('site/assets/images/gps logo.png') }}" alt="Good Procurement Service Ltd">
                     </a>
+                    <p class="gps-footer-purpose" style="font-family: var(--display-font); font-weight: 700; color: var(--text-color);">The real thing, delivered honestly. That's the standard, wherever we grow.</p>
                     <p>Good Procurement Service Ltd delivers professional procurement, logistics, and maritime supply solutions across Oil &amp; Gas, Construction, Corporate Services, and Maritime sectors. We're growing, and we're doing it properly.</p>
                     <div class="gps-footer-social">
                         <a href="https://www.linkedin.com/company/goodprocure/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
