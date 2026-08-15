@@ -9,7 +9,7 @@
 
 @section('main')
     <!-- Page Header Section Start -->
-    <div class="page-header bg-section parallaxie gps-services-header">
+    <div class="page-header bg-section parallaxie gps-services-header gps-services-header--{{ $service->slug }}">
         <video class="gps-hero-video" autoplay muted loop playsinline preload="none" aria-hidden="true">
             <source src="{{ asset('site/assets/videos/hero-' . $service->slug . '.mp4') }}" type="video/mp4">
         </video>
