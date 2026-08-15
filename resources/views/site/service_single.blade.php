@@ -8,6 +8,43 @@
 @endpush
 
 @section('main')
+    @php
+        // Finalized short-form copy per service, mapped to the hero subhead and the
+        // "Why Choose" differentiation line so each page shows distinct copy instead
+        // of the same generic sentence repeated across zones.
+        $servicePlacementCopy = [
+            'office-admin-corporate-procurement' => [
+                'subhead' => "Running out of the basics shouldn't be why your office slows down.",
+                'why_choose_label' => 'Why Choose Our Office & Corporate Procurement',
+                'why_choose_copy' => 'One point of contact for everything your office runs on, sourced properly and delivered before you actually need it.',
+            ],
+            'technology-it-procurement' => [
+                'subhead' => "The wrong device or license costs more in workaround hours than it ever saves.",
+                'why_choose_label' => 'Why Choose Our Technology & IT Procurement',
+                'why_choose_copy' => "We check fitness for purpose before anything ships, not after it's already slowing your team down.",
+            ],
+            'construction-infrastructure-procurement' => [
+                'subhead' => "Materials that don't match spec look fine, until they're already installed.",
+                'why_choose_label' => 'Why Choose Our Construction & Infrastructure Procurement',
+                'why_choose_copy' => 'We source to spec and coordinate delivery around your actual site timeline, not a generic one.',
+            ],
+            'oil-gas-procurement' => [
+                'subhead' => "On this kind of operation, the wrong consumable isn't a small problem.",
+                'why_choose_label' => 'Why Choose Our Oil & Gas Procurement',
+                'why_choose_copy' => 'Safety materials and technical equipment sourced with the seriousness the category actually requires, not just the lowest quote.',
+            ],
+            'maritime-supply' => [
+                'subhead' => "A vessel that isn't ready when your operation needs it delays everything scheduled after it.",
+                'why_choose_label' => 'Why Choose Our Maritime Supply',
+                'why_choose_copy' => 'We vet for real availability and fitness for the job, not just whether a vessel exists on paper.',
+            ],
+            'site-camp-welfare-supplies' => [
+                'subhead' => 'Working away from home is hard enough without going without the basics.',
+                'why_choose_label' => 'Why Choose Our Site & Camp Welfare Supplies',
+                'why_choose_copy' => 'Quality checked before it ships, so your crew rests and comes back ready, not worn down.',
+            ],
+        ][$service->slug] ?? null;
+    @endphp
     <!-- Page Header Section Start -->
     <div class="page-header bg-section parallaxie gps-services-header gps-services-header--{{ $service->slug }}">
         <video class="gps-hero-video" autoplay muted loop playsinline preload="none" aria-hidden="true">
@@ -20,8 +57,8 @@
                     <div class="page-header-box gps-page-header-box">
                         <span class="gps-eyebrow wow fadeInUp">Service Category</span>
                         <h1 class="text-anime-style-3" data-cursor="-opaque">{{ $service->name }}</h1>
-                        @if($service->short_description)
-                            <p class="gps-header-lede wow fadeInUp" data-wow-delay="0.2s">{{ $service->short_description }}</p>
+                        @if($servicePlacementCopy['subhead'] ?? $service->short_description)
+                            <p class="gps-header-lede wow fadeInUp" data-wow-delay="0.2s">{{ $servicePlacementCopy['subhead'] ?? $service->short_description }}</p>
                         @endif
                         <nav class="wow fadeInUp" data-wow-delay="0.3s">
                             <ol class="breadcrumb">
@@ -85,9 +122,9 @@
                         <div class="sidebar-cta-box gps-cta-panel wow fadeInUp" data-wow-delay="0.25s">
                             <!-- Sidebar CTA Content Start -->
                             <div class="sidebar-cta-content gps-cta-panel-content">
-                                <span class="gps-cta-eyebrow">Need this sourced?</span>
-                                <h3>We're here to support your procurement needs</h3>
-                                <p>Committed to making your procurement experience smooth, efficient, and cost-effective.</p>
+                                <span class="gps-cta-eyebrow">Need This Moved Too?</span>
+                                <h3>Logistics & Fleet Support</h3>
+                                <p>Runs underneath every category. Vehicles, heavy-duty equipment, customs clearing, and expediting, available on request.</p>
                             </div>
                             <!-- Sidebar CTA Content End -->
 
@@ -130,7 +167,6 @@
                             <!-- Service Offer Box Start -->
                             <div class="service-offer-box gps-offer-section">
                                 <h2 class="text-anime-style-3">What we offer</h2>
-                                <p class="wow fadeInUp">{{ $service->short_description }}</p>
 
                                 <!-- Service Offer Item List Start -->
                                 <div class="service-offer-item-list gps-offer-list">
@@ -189,8 +225,8 @@
                                     @endforeach
                                 @else
                                     <div class="service-why-choose-content">
-                                        <h2 class="text-anime-style-3">Why choose our {{ strtolower($service->name) }} service</h2>
-                                        <p class="wow fadeInUp">Good Procurement Service Ltd provides reliable and comprehensive procurement solutions tailored to your business needs. Our expertise ensures quality, efficiency, and cost-effectiveness in every engagement.</p>
+                                        <h2 class="text-anime-style-3">{{ $servicePlacementCopy['why_choose_label'] ?? 'Why choose our ' . strtolower($service->name) . ' service' }}</h2>
+                                        <p class="wow fadeInUp">{{ $servicePlacementCopy['why_choose_copy'] ?? 'Good Procurement Service Ltd provides reliable and comprehensive procurement solutions tailored to your business needs. Our expertise ensures quality, efficiency, and cost-effectiveness in every engagement.' }}</p>
                                         <ul class="wow fadeInUp" data-wow-delay="0.2s">
                                             <li>Extensive supplier network with verified, reliable partners across industries.</li>
                                             <li>Dedicated account managers ensuring personalized attention to your procurement needs.</li>
