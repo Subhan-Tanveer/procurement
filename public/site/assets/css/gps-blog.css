@@ -114,6 +114,17 @@
 	margin: 0 0 36px;
 }
 
+.gps-blog-listing-lede a {
+	color: var(--accent-color);
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.gps-blog-listing-lede a:hover {
+	color: var(--accent-color-2);
+}
+
 .gps-blog-listing-actions {
 	display: flex;
 	align-items: center;
