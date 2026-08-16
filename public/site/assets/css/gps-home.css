@@ -238,7 +238,7 @@
 	animation-duration: 6.5s;
 	animation-delay: 0s;
 }
-.gps-team-bubble--1 img { object-position: center 22%; }
+.gps-team-bubble--1 img { object-position: center 17%; }
 
 .gps-team-bubble--2 {
 	top: 2%;
@@ -249,7 +249,7 @@
 	animation-delay: 0.6s;
 }
 .gps-team-bubble--2 .gps-team-bubble-clip::after { border-color: var(--accent-color-2); }
-.gps-team-bubble--2 img { object-position: center 18%; }
+.gps-team-bubble--2 img { object-position: center 13%; }
 
 .gps-team-bubble--3 {
 	bottom: 8%;
@@ -260,7 +260,7 @@
 	animation-delay: 0.3s;
 }
 .gps-team-bubble--3 .gps-team-bubble-clip::after { border-color: var(--white-color); }
-.gps-team-bubble--3 img { object-position: center 15%; }
+.gps-team-bubble--3 img { object-position: center 10%; }
 
 .gps-team-bubble--4 {
 	bottom: 2%;
@@ -270,7 +270,7 @@
 	animation-duration: 6s;
 	animation-delay: 0.9s;
 }
-.gps-team-bubble--4 img { object-position: center 15%; }
+.gps-team-bubble--4 img { object-position: center 10%; }
 
 @keyframes gps-bubble-float {
 	0%, 100% { transform: translateY(0); }
