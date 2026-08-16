@@ -94,8 +94,14 @@
 		});
 
 		/* ---------- Parallax imagery (continuous scroll-linked drift, not just entrance) ---------- */
-		var parallaxTargets = document.querySelectorAll(
-			'.gps-about-figure img, .gps-why-figure img, .gps-product-card-media img, .hero-fade-slideshow img'
+		var parallaxTargets = Array.prototype.filter.call(
+			document.querySelectorAll(
+				'.gps-about-figure img, .gps-why-figure img, .gps-product-card-media img, .hero-fade-slideshow img'
+			),
+			// The team bubble avatars are tightly-cropped circles with no
+			// extra image margin, so any parallax shift immediately exposes
+			// empty space at the top/bottom edge of the circle.
+			function (img) { return !img.closest('.gps-team-bubble'); }
 		);
 		parallaxTargets.forEach(function (img) {
 			gsap.fromTo(img, { yPercent: -8 }, {
