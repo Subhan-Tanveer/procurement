@@ -889,41 +889,27 @@ body,
 	display: none;
 }
 
-/* ---------- Stakes note — a small callout meant to actually get noticed ---------- */
-.gps-stakes-note {
+/* ---------- Stakes note — plain colored text, just a pinging dot for attention ---------- */
+.gps-process-step .gps-stakes-note {
 	display: inline-flex;
 	align-items: flex-start;
-	gap: 10px;
-	margin-top: 14px;
-	padding: 12px 16px;
-	border-radius: 14px;
-	background: color-mix(in srgb, var(--accent-color) 14%, transparent);
-	border: 1px solid color-mix(in srgb, var(--accent-color) 35%, transparent);
+	gap: 8px;
+	margin-top: 10px;
 	color: var(--accent-color);
 	font-weight: 600;
-	font-size: 13.5px;
-	line-height: 1.45;
-	animation: gps-stakes-pulse 2.2s ease-in-out infinite;
+	font-size: 14px;
+	line-height: 1.5;
 }
 
 .gps-stakes-dot {
 	flex-shrink: 0;
 	width: 7px;
 	height: 7px;
-	margin-top: 6px;
+	margin-top: 7px;
 	border-radius: 50%;
 	background: var(--accent-color);
 	box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color) 60%, transparent);
 	animation: gps-stakes-dot-ping 2.2s ease-out infinite;
-}
-
-@keyframes gps-stakes-pulse {
-	0%, 100% {
-		box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color) 0%, transparent);
-	}
-	50% {
-		box-shadow: 0 0 16px 1px color-mix(in srgb, var(--accent-color) 25%, transparent);
-	}
 }
 
 @keyframes gps-stakes-dot-ping {
