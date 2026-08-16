@@ -204,6 +204,11 @@
                                         <h2 class="text-anime-style-3">{{ $servicePlacementCopy['why_choose_label'] ?? 'Why choose our ' . strtolower($service->name) . ' service' }}</h2>
                                         <p class="wow fadeInUp">{{ $servicePlacementCopy['why_choose_copy'] ?? 'Good Procurement Service Ltd provides reliable and comprehensive procurement solutions tailored to your business needs. Our expertise ensures quality, efficiency, and cost-effectiveness in every engagement.' }}</p>
                                     </div>
+                                    <div class="service-why-choose-image">
+                                        <figure class="image-anime">
+                                            <img src="{{ asset('site/assets/images/service-why-choose-image.jpg') }}" alt="">
+                                        </figure>
+                                    </div>
                                 @endif
                             </div>
                             <!-- Service Why Choose Box End -->
