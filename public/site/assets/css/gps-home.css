@@ -181,7 +181,11 @@
 		radial-gradient(circle at 30% 20%, var(--gps-glow) 0%, transparent 55%),
 		linear-gradient(150deg, var(--secondary-color) 0%, var(--bg-color) 100%);
 	border: 1px solid var(--gps-glass-border);
-	overflow: hidden;
+	/* No overflow:hidden here -- the bubbles near top:2%/top:6% sit close
+	   enough to this panel's own 24px corner radius that its clip was
+	   slicing a flat edge into the top of those circles. Nothing here
+	   needs clipping since the bubbles are already positioned within
+	   bounds; the panel shape is purely the background gradient. */
 }
 
 /* The float animation lives on this outer element, which has no
