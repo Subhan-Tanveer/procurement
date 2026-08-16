@@ -297,9 +297,20 @@
         <div class="container">
             <div class="gps-about-grid">
                 <div class="gps-about-figure">
-                    <figure class="image-anime reveal" style="margin:0;">
-                        <img src="{{ asset('site/assets/images/about-us-image-elite.jpg') }}?v={{ filemtime(public_path('site/assets/images/about-us-image-elite.jpg')) }}" alt="Good Procurement team member reviewing supplies" loading="lazy" decoding="async">
-                    </figure>
+                    <div class="gps-team-bubbles" role="img" aria-label="Photos of Good Procurement team members">
+                        <div class="gps-team-bubble gps-team-bubble--1">
+                            <img src="{{ asset('site/assets/images/team-procurement-officer.jpg') }}" alt="Procurement Officer" loading="lazy" decoding="async">
+                        </div>
+                        <div class="gps-team-bubble gps-team-bubble--2">
+                            <img src="{{ asset('site/assets/images/team-marketing-coordinator.jpg') }}" alt="Marketing &amp; Communications Coordinator" loading="lazy" decoding="async">
+                        </div>
+                        <div class="gps-team-bubble gps-team-bubble--3">
+                            <img src="{{ asset('site/assets/images/team-digital-marketing-coordinator.jpg') }}" alt="Digital Marketing &amp; Communications Coordinator" loading="lazy" decoding="async">
+                        </div>
+                        <div class="gps-team-bubble gps-team-bubble--4">
+                            <img src="{{ asset('site/assets/images/team-administration-officer.jpg') }}" alt="Administration Officer" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
 
                 <div>
@@ -329,9 +340,9 @@
                         <p>We're a growing company, and we'd rather show that plainly than borrow a track record that isn't ours. What you get: careful sourcing, honest timelines, and a team building its reputation with every order, starting with yours.</p>
                     </div>
 
-                    <div class="gps-callout wow fadeInUp" data-wow-delay="0.6s" style="border-left: 3px solid var(--accent-color);">
+                    <div class="gps-callout gps-callout--statement wow fadeInUp" data-wow-delay="0.6s">
                         <div class="gps-kicker" style="margin-bottom: 8px;">Why We're Here</div>
-                        <p>We started because people were paying real money for fake goods without knowing it. That problem doesn't end at any border, so neither do we.</p>
+                        <p class="gps-statement">We started because people were paying real money for fake goods without knowing it. That problem doesn't end at any border, so neither do we.</p>
                     </div>
                 </div>
             </div>
@@ -524,7 +535,7 @@
                         </h2>
                         <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordion">
                             <div class="accordion-body">
-                                <p>Send us what you need through the form, WhatsApp, or email. We will review the request and come back with a clear quotation before anything is confirmed.</p>
+                                <p>Send us what you need through the form, WhatsApp, or email. We will review your request and provide a clear quotation before anything is confirmed.</p>
                             </div>
                         </div>
                     </div>
@@ -550,7 +561,7 @@
                         </h2>
                         <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordion">
                             <div class="accordion-body">
-                                <p>Delivery timelines depend on the product, availability, quantity, location, and nature of the order. We will state the expected timeline clearly when we send your quotation.</p>
+                                <p>Delivery timelines depend on the product, availability, quantity, location, and nature of the order. We will provide an estimated delivery timeline with your quotation.</p>
                             </div>
                         </div>
                     </div>
@@ -563,7 +574,7 @@
                         </h2>
                         <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordion">
                             <div class="accordion-body">
-                                <p>No. We can support one-off procurement requests as well as repeat or recurring supply needs where a client needs consistency over time.</p>
+                                <p>No. We handle both one-off procurement requests and repeat or recurring supply needs, helping clients maintain consistency over time.</p>
                             </div>
                         </div>
                     </div>
@@ -576,7 +587,7 @@
                         </h2>
                         <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordion">
                             <div class="accordion-body">
-                                <p>Payment can be made by bank transfer, Moniepoint, Paystack, or cash, depending on the request and what is most practical for the transaction.</p>
+                                <p>Payment is made according to the agreed terms for each procurement request. An upfront payment is typically required before procurement begins, with the balance settled as agreed before delivery. All payments are supported by a formal quotation or invoice.</p>
                             </div>
                         </div>
                     </div>
@@ -589,7 +600,7 @@
                         </h2>
                         <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordion">
                             <div class="accordion-body">
-                                <p>We do not disappear after delivery. If there is a problem, we address it directly and work to resolve it quickly instead of leaving you to chase suppliers on your own.</p>
+                                <p>Our support doesn't end at delivery. If there is an issue with an order, we will work with the relevant supplier or service provider to address it and help bring the matter to a resolution.</p>
                             </div>
                         </div>
                     </div>
