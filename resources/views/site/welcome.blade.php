@@ -303,6 +303,11 @@
                                 <img src="{{ asset('site/assets/images/team-administration-officer.jpg') }}" alt="Administration Officer" loading="lazy" decoding="async">
                             </div>
                         </div>
+                        <div class="gps-team-bubble gps-team-bubble--5">
+                            <div class="gps-team-bubble-clip">
+                                <img src="{{ asset('site/assets/images/team-executive-secretary.jpg') }}" alt="Executive Secretary to the CEO" loading="lazy" decoding="async">
+                            </div>
+                        </div>
                     </div>
                 </div>
 

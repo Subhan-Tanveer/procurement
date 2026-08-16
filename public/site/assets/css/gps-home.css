@@ -175,7 +175,7 @@
 /* ---------- Team photo bubbles ---------- */
 .gps-team-bubbles {
 	position: relative;
-	aspect-ratio: 1 / 1.05;
+	aspect-ratio: 1 / 1.3;
 	border-radius: 24px;
 	background:
 		radial-gradient(circle at 30% 20%, var(--gps-glow) 0%, transparent 55%),
@@ -271,6 +271,26 @@
 	animation-delay: 0.9s;
 }
 .gps-team-bubble--4 img { object-position: center 10%; }
+
+.gps-team-bubble--5 {
+	/* Centered via left:0/right:0/margin-inline:auto rather than
+	   left:50% + transform:translateX(-50%) -- the float animation below
+	   also animates `transform`, and a CSS animation replaces the whole
+	   property value each frame rather than composing with a static one,
+	   so a transform-based centering trick would snap out of place the
+	   moment the animation starts. */
+	top: 33%;
+	left: 0;
+	right: 0;
+	margin-inline: auto;
+	z-index: 2;
+	width: clamp(125px, 20vw, 190px);
+	height: clamp(125px, 20vw, 190px);
+	animation-duration: 6.8s;
+	animation-delay: 0.45s;
+}
+.gps-team-bubble--5 .gps-team-bubble-clip::after { border-color: var(--accent-color-2); }
+.gps-team-bubble--5 img { object-position: center 32%; }
 
 @keyframes gps-bubble-float {
 	0%, 100% { transform: translateY(0); }
