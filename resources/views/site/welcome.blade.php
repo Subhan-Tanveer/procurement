@@ -190,21 +190,6 @@
     </div>
     <!-- Hero Section End -->
 
-    <!-- Marquee Ticker Start -->
-    <div class="gps-marquee" aria-hidden="true">
-        @php
-            $gpsTickerTags = ['Reliable Sourcing', 'Vendor Management', 'Quality Assurance', 'Supply Chain', 'Honest Timelines', 'Direct Communication', 'Clear Quotations', 'Careful Vetting'];
-        @endphp
-        <div class="gps-marquee-track">
-            @for ($i = 0; $i < 2; $i++)
-                @foreach ($gpsTickerTags as $tag)
-                    <span>{{ $tag }}</span>
-                @endforeach
-            @endfor
-        </div>
-    </div>
-    <!-- Marquee Ticker End -->
-
     <!-- Trust Strip Start -->
     <div class="gps-trust-strip">
         <div class="container">
