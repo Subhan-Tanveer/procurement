@@ -163,30 +163,6 @@
                             </div>
                             <p class="wow fadeInUp">{{ $service->description }}</p>
 
-                            @if($service->details->count() > 0)
-                            <!-- Service Offer Box Start -->
-                            <div class="service-offer-box gps-offer-section">
-                                <h2 class="text-anime-style-3">What we offer</h2>
-
-                                <!-- Service Offer Item List Start -->
-                                <div class="service-offer-item-list gps-offer-list">
-                                    @foreach($service->details as $index => $detail)
-                                    <!-- Service Offer Item Start -->
-                                    <div class="service-offer-item gps-offer-item wow fadeInUp" data-wow-delay="{{ ($index + 1) * 0.2 }}s">
-                                        <div class="gps-offer-item-index" aria-hidden="true">{{ sprintf('%02d', $index + 1) }}</div>
-                                        <div class="service-offer-item-content">
-                                            <h3>{{ $detail->title }}</h3>
-                                            <p>{{ $detail->content }}</p>
-                                        </div>
-                                    </div>
-                                    <!-- Service Offer Item End -->
-                                    @endforeach
-                                </div>
-                                <!-- Service Offer Item List End -->
-                            </div>
-                            <!-- Service Offer Box End -->
-                            @endif
-
                             <!-- Service Why Choose Box Start -->
                             <div class="service-why-choose-box gps-why-choose {{ $whyChooseTheme === 'light' ? 'service-why-choose-light' : '' }}">
                                 @if($service->why_choose_title || $service->why_choose_intro)
@@ -227,21 +203,34 @@
                                     <div class="service-why-choose-content">
                                         <h2 class="text-anime-style-3">{{ $servicePlacementCopy['why_choose_label'] ?? 'Why choose our ' . strtolower($service->name) . ' service' }}</h2>
                                         <p class="wow fadeInUp">{{ $servicePlacementCopy['why_choose_copy'] ?? 'Good Procurement Service Ltd provides reliable and comprehensive procurement solutions tailored to your business needs. Our expertise ensures quality, efficiency, and cost-effectiveness in every engagement.' }}</p>
-                                        <ul class="wow fadeInUp" data-wow-delay="0.2s">
-                                            <li>Extensive supplier network with verified, reliable partners across industries.</li>
-                                            <li>Dedicated account managers ensuring personalized attention to your procurement needs.</li>
-                                            <li>Competitive pricing through bulk purchasing power and strategic negotiations.</li>
-                                            <li>Quality assurance processes that guarantee product standards and specifications.</li>
-                                        </ul>
-                                    </div>
-                                    <div class="service-why-choose-image">
-                                        <figure class="image-anime">
-                                            <img src="{{ asset('site/assets/images/service-why-choose-image.jpg') }}" alt="">
-                                        </figure>
                                     </div>
                                 @endif
                             </div>
                             <!-- Service Why Choose Box End -->
+
+                            @if($service->details->count() > 0)
+                            <!-- Service Offer Box Start -->
+                            <div class="service-offer-box gps-offer-section">
+                                <h2 class="text-anime-style-3">What we offer</h2>
+
+                                <!-- Service Offer Item List Start -->
+                                <div class="service-offer-item-list gps-offer-list">
+                                    @foreach($service->details as $index => $detail)
+                                    <!-- Service Offer Item Start -->
+                                    <div class="service-offer-item gps-offer-item wow fadeInUp" data-wow-delay="{{ ($index + 1) * 0.2 }}s">
+                                        <div class="gps-offer-item-index" aria-hidden="true">{{ sprintf('%02d', $index + 1) }}</div>
+                                        <div class="service-offer-item-content">
+                                            <h3>{{ $detail->title }}</h3>
+                                            <p>{{ $detail->content }}</p>
+                                        </div>
+                                    </div>
+                                    <!-- Service Offer Item End -->
+                                    @endforeach
+                                </div>
+                                <!-- Service Offer Item List End -->
+                            </div>
+                            <!-- Service Offer Box End -->
+                            @endif
                         </div>
                         <!-- Service Entry End -->
 
