@@ -299,16 +299,24 @@
                 <div class="gps-about-figure">
                     <div class="gps-team-bubbles" role="img" aria-label="Photos of Good Procurement team members">
                         <div class="gps-team-bubble gps-team-bubble--1">
-                            <img src="{{ asset('site/assets/images/team-procurement-officer.jpg') }}" alt="Procurement Officer" loading="lazy" decoding="async">
+                            <div class="gps-team-bubble-clip">
+                                <img src="{{ asset('site/assets/images/team-procurement-officer.jpg') }}" alt="Procurement Officer" loading="lazy" decoding="async">
+                            </div>
                         </div>
                         <div class="gps-team-bubble gps-team-bubble--2">
-                            <img src="{{ asset('site/assets/images/team-marketing-coordinator.jpg') }}" alt="Marketing &amp; Communications Coordinator" loading="lazy" decoding="async">
+                            <div class="gps-team-bubble-clip">
+                                <img src="{{ asset('site/assets/images/team-marketing-coordinator.jpg') }}" alt="Marketing &amp; Communications Coordinator" loading="lazy" decoding="async">
+                            </div>
                         </div>
                         <div class="gps-team-bubble gps-team-bubble--3">
-                            <img src="{{ asset('site/assets/images/team-digital-marketing-coordinator.jpg') }}" alt="Digital Marketing &amp; Communications Coordinator" loading="lazy" decoding="async">
+                            <div class="gps-team-bubble-clip">
+                                <img src="{{ asset('site/assets/images/team-digital-marketing-coordinator.jpg') }}" alt="Digital Marketing &amp; Communications Coordinator" loading="lazy" decoding="async">
+                            </div>
                         </div>
                         <div class="gps-team-bubble gps-team-bubble--4">
-                            <img src="{{ asset('site/assets/images/team-administration-officer.jpg') }}" alt="Administration Officer" loading="lazy" decoding="async">
+                            <div class="gps-team-bubble-clip">
+                                <img src="{{ asset('site/assets/images/team-administration-officer.jpg') }}" alt="Administration Officer" loading="lazy" decoding="async">
+                            </div>
                         </div>
                     </div>
                 </div>
